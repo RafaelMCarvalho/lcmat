@@ -1,0 +1,16 @@
+h3 #{@contact.title}
+
+= @contact.content.html_safe
+
+#main_content.contact_page
+  = content_tag(:p, notice, :class => 'notice') if notice
+
+  = simple_form_for(@contact_form, :url => send_contact_path) do |f|
+    .inputs
+      = f.input :name
+      = f.input :email
+      = f.input :message, :as => :text
+
+    .actions
+      = f.button :submit, 'Enviar mensagem'
+

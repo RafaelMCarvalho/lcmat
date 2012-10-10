@@ -57,9 +57,4 @@ Lcmat::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
-
-  config.middleware.use ExceptionNotifier,
-    :email_prefix => "[Lcmat] ",
-    :sender_address => %{"Lcmat" <lcmat@lcmat.com>},
-    :exception_recipients => %w{algorich-dev@googlegroups.com}
 end

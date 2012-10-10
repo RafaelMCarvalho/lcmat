@@ -6,17 +6,17 @@ describe ContactMailer do
     before do
       @configuration = FactoryGirl.create :configuration
       @params = {:name => 'Fulano', :email => 'fulano@gmail.com',
-                :message => 'Qq coisa'}
+                :message => 'Qq coisa', :to => @configuration.email}
     end
 
     let(:mail) { ContactMailer.contact(@params) }
 
     it 'guarantee that the receiver is correct' do
-      mail.to.should == [@configuration.email]
+      mail.to.should == [@params[:to]]
     end
 
     it 'guarantee that the sender is correct' do
-      mail.from.should == ['lcmat@email.com']
+      mail.from.should == [@params[:email]]
     end
 
     it 'guarantee that the subject is correct' do

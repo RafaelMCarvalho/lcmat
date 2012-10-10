@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 require 'spec_helper'
 
-feature 'Manipulate page' do
+feature 'Manipulate post' do
   background do
     @user = FactoryGirl.create :user, :email => 'user@user.com', :password => '123456'
     FactoryGirl.create :configuration
@@ -10,7 +10,7 @@ feature 'Manipulate page' do
 
   context 'new' do
     before :each do
-      visit '/admin/page/new'
+      visit '/admin/post/new'
     end
 
     scenario 'successfully' do
@@ -18,7 +18,7 @@ feature 'Manipulate page' do
       fill_in 'Conteúdo', :with => ''
       check 'Publicado'
       click_button 'Salvar'
-      page.should have_content 'Página criado(a) com sucesso.'
+      page.should have_content 'Informativo criado(a) com sucesso.'
     end
 
     scenario 'failure' do
@@ -30,8 +30,8 @@ feature 'Manipulate page' do
 
   context 'edit' do
     before :each do
-      page = FactoryGirl.create :page
-      visit "/admin/page/#{page.id}/edit"
+      post = FactoryGirl.create :post
+      visit "/admin/post/#{post.id}/edit"
     end
 
     scenario 'successfully' do
@@ -39,7 +39,7 @@ feature 'Manipulate page' do
       fill_in 'Conteúdo', :with => ''
       check 'Publicado'
       click_button 'Salvar'
-      page.should have_content 'Página atualizado(a) com sucesso.'
+      page.should have_content 'Informativo atualizado(a) com sucesso.'
     end
 
     scenario 'failure' do
@@ -47,20 +47,6 @@ feature 'Manipulate page' do
       click_button 'Salvar'
       page.should have_content 'Título não pode ser vazio.'
     end
-  end
-
-  scenario 'cannot delete contact page' do
-    page = FactoryGirl.create :page, indicator: Page::PAGES[:contact]
-    lambda {
-      visit "/admin/page/#{page.id}/delete"
-    }.should raise_error CanCan::AccessDenied
-  end
-
-  scenario 'can delete user created pages' do
-    page = FactoryGirl.create :page, indicator: nil
-    lambda {
-      visit "/admin/page/#{page.id}/delete"
-    }.should_not raise_error CanCan::AccessDenied
   end
 end
 

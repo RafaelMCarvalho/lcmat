@@ -1,12 +1,12 @@
 pt-BR:
-  home:
-    name: Início
   views:
     pagination:
       previous: "&laquo; Anterior"
       next: "Próximo &raquo;"
       truncate: "…"
   admin:
+    home:
+      name: Início
     misc:
       search: "Search"
       filter: "Filtro"

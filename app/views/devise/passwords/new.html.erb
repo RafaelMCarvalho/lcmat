@@ -1,15 +1,17 @@
-<h2>Esqueceu sua senha?</h2>
+<%= content_for :content do %>
+  <h2>Recuperar senha</h2>
 
-<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= f.error_notification %>
+  <%= simple_form_for(resource, :as => resource_name,
+    :url => session_path(resource_name), :html => { :method => :post }) do |f| %>
+    <div class="inputs">
+      <%= f.input :email, :required => true, :autofocus => true %>
+    </div>
 
-  <div class="inputs">
-    <%= f.input :email, :required => true %>
-  </div>
-
-  <div class="actions">
-    <%= f.button :submit, "Enviar instruções para mudar a senha" %>
-  </div>
+    <div class="actions">
+      <div class="links">
+        <%= render :partial => "devise/shared/links" %>
+      </div>
+      <p class="buttom"><%= f.button :submit, 'Enviar instruções' %></p>
+    </div>
+  <% end %>
 <% end %>
-
-<%= render :partial => "devise/shared/links" %>

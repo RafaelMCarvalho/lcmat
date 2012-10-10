@@ -1,0 +1,15 @@
+<h2>Reenviar instruções de desbloqueio</h2>
+
+<%= simple_form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :email, :required => true %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit, "Reenviar" %>
+  </div>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>

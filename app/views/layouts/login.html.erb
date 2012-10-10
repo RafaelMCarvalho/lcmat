@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+  <title>Liber - Login</title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta content='http://algorich.com.br' name='author' />
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <%= stylesheet_link_tag 'login.css' %>
+
+  <%= csrf_meta_tag %>
+</head>
+
+<body id="login_page">
+<div id="wrapper">
+  <!-- CONTENT BEGIN -->
+  <div id="content_wrapper">
+    <div id="content">
+      <%= yield :content %>
+    </div>
+  </div>
+  <!-- CONTENT END -->
+</div>
+</body>
+
+</html>

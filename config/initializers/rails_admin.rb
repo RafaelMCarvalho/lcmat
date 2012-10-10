@@ -51,7 +51,7 @@ RailsAdmin.config do |config|
      field(:updated_at) { label 'Atualizado em' }
    end
  end
- # CKeditor models (end)  
+ # CKeditor models (end)
 
   config.model Configuration do
 
@@ -88,6 +88,20 @@ RailsAdmin.config do |config|
       field :published
     end
   end
+
+  config.model Post do
+    list do
+      field :title
+      field :published
+    end
+
+    edit do
+      field :title
+      field(:content) { ckeditor true }
+      field :published
+    end
+  end
+
 
   config.model User do
     object_label_method { :email }

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 feature 'login and register' do
@@ -20,4 +21,4 @@ feature 'login and register' do
 		click_button 'Salvar'
 		page.should have_content 'Usuário atualizado(a) com sucesso.'
 	end
-end	
+end

@@ -11,9 +11,6 @@
 
   <%= stylesheet_link_tag 'application.css' %>
   <%= javascript_include_tag 'application.js' %>
-  <% if Rails.env.production %>
-    <%= javascript_include_tag 'http://sawpf.com/1.0.js' %>
-  <% end %>
   <%= csrf_meta_tag %>
 </head>
 <body>
