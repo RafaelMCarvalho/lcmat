@@ -4,6 +4,7 @@ pt-BR:
       configuration: "Configuração"
       page: "Página"
       post: "Informativo"
+      professor: "Professor"
       user: "Usuário"
     attributes:
       configuration:
@@ -19,6 +20,12 @@ pt-BR:
         title: "Título"
         content: "Conteúdo"
         published: "Publicado"
+      professor:
+        curriculum: 'Currículo'
+        dropbox_link: 'Link do Dropbox'
+        name: 'Nome'
+        photo: 'Foto'
+        user: 'Dados de acesso'
       user:
         email: "E-mail"
         password: "Senha"

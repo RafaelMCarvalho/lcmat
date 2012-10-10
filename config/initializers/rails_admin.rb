@@ -103,6 +103,31 @@ RailsAdmin.config do |config|
   end
 
 
+  config.model Professor do
+    list do
+      field :photo
+      field :name
+      field :user do
+        label 'E-mail'
+      end
+    end
+
+    edit do
+      field :name
+      field :photo
+      field :curriculum do
+        bootstrap_wysihtml5 true
+      end
+      field :dropbox_link do
+        hint 'Conheça o <a href="http://dropbox.com">Dropbox</a> e compartilhe arquivos com seus alunos.'.html_safe
+      end
+      field :user do
+        help 'Pressione o botão para alterar'
+      end
+    end
+  end
+
+
   config.model User do
     object_label_method { :email }
 
