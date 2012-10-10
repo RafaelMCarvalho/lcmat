@@ -1,0 +1,7 @@
+tmp/
+log/
+.rvmrc
+public/system
+public/ckeditor_assets
+public/assets
+db/schema.rb

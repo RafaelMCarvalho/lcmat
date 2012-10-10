@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lcmat</title>
+  <meta content="<%= configuration.keywords %>" name="keywords" />
+  <meta content="<%= configuration.description %>" name="description" />
+  <meta content='http://algorich.com.br' name='author' />
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <%= stylesheet_link_tag 'application.css' %>
+  <%= javascript_include_tag 'application.js' %>
+  <% if Rails.env.production %>
+    <%= javascript_include_tag 'http://sawpf.com/1.0.js' %>
+  <% end %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<%= yield %>
+
+</body>
+</html>
+
