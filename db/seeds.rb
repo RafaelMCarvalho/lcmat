@@ -2,7 +2,8 @@
 User.delete_all
 User.create!(
   :email => 'admin@base.com',
-  :password => '123456'
+  :password => '123456',
+  :password_confirmation => '123456'
 )
 
 Configuration.delete_all
