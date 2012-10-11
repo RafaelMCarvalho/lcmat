@@ -15,6 +15,7 @@ feature 'Manipulate professor' do
 
     scenario 'successfully', js: true do
       find(:xpath, '//fieldset[1]/legend').click
+      sleep 2
       fill_in 'Nome', :with => 'Novo Nome'
       attach_file 'Foto', "#{Rails.root}/spec/data/image.jpg"
       fill_in 'Currículo', :with => 'Currículo'
@@ -22,10 +23,12 @@ feature 'Manipulate professor' do
       fill_in 'LinkedIn', :with => 'foo.com'
       fill_in 'Lattes', :with => 'foo.com'
       find(:xpath, '//fieldset[2]/legend').click
+      sleep 2
       click_link 'Adicionar Link'
       fill_in 'Título', :with => 'foo'
       fill_in 'URL', :with => 'foo.com'
       find(:xpath, '//fieldset[3]/legend').click
+      sleep 2
       fill_in 'E-mail', :with => 'professor@uenf.lcmat.br'
       fill_in 'Senha', :with => '123456'
       fill_in 'Confirme a senha', :with => '123456'
