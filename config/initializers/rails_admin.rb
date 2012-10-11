@@ -112,6 +112,21 @@ RailsAdmin.config do |config|
       end
     end
 
+    create do
+      field :name
+      field :photo
+      field :curriculum do
+        bootstrap_wysihtml5 true
+      end
+      field :dropbox_link do
+        hint 'Conheça o <a href="http://dropbox.com">Dropbox</a> e compartilhe arquivos com seus alunos.'.html_safe
+      end
+      field :user do
+        active true
+        help ''
+      end
+    end
+
     edit do
       field :name
       field :photo
@@ -122,6 +137,9 @@ RailsAdmin.config do |config|
         hint 'Conheça o <a href="http://dropbox.com">Dropbox</a> e compartilhe arquivos com seus alunos.'.html_safe
       end
       field :user do
+        active do
+          bindings[:object].errors.any?
+        end
         help 'Pressione o botão para alterar'
       end
     end

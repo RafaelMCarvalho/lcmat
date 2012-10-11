@@ -10,6 +10,10 @@ Spork.prefork do
   require 'capybara/rspec'
   require 'valid_attribute'
   require 'cancan/matchers'
+  require 'paperclip/matchers'
+
+  IMAGE = File.expand_path("../data/image.jpg", __FILE__)
+  TEXT = File.expand_path("../data/text.txt", __FILE__)
 
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
@@ -17,7 +21,8 @@ Spork.prefork do
 
   RSpec.configure do |config|
     config.mock_with :rspec
-    config.use_transactional_fixtures = true
+    config.use_transactional_fixtures = false
+    config.include Paperclip::Shoulda::Matchers
 
     config.before :each do
       if example.metadata[:js]
@@ -35,7 +40,7 @@ Spork.prefork do
     config.after do
       DatabaseCleaner.clean
       Capybara.use_default_driver if example.metadata[:js]
-    end 
+    end
   end
 
   def login(email, password)
@@ -48,5 +53,14 @@ end
 
 Spork.each_run do
   require File.expand_path("../../config/routes", __FILE__)
-end
 
+  # Reload all models and controllers files when run each spec
+  # otherwise there might be out-of-date testing
+  Dir["#{Rails.root}/app/controllers/*.rb"].each do |controller|
+    load controller
+  end
+
+  Dir["#{Rails.root}/app/models/*.rb"].each do |model|
+    load model
+  end
+end
