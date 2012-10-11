@@ -1,15 +1,4 @@
-<%= content_for :subnav do %>
-  <div class="row"></div>
-  <div class="subnav">
-    <ul class="nav nav-pills">
-      <li><%= link_to 'Teste', '#' %></li>
-      <li><%= link_to 'Teste', '#' %></li>
-      <li><%= link_to 'Teste', '#' %></li>
-      <li><%= link_to 'Teste', '#' %></li>
-      <li><%= link_to 'Teste', '#' %></li>
-    </ul>
-  </div>
-<% end %>
+<%= render partial: 'course_menu' %>
 
 <h2><%= @course.name %></h2>
 <p><%= @course.description %></p>

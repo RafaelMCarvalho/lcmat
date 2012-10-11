@@ -6,8 +6,71 @@
  *= require_tree .
 */
 
+.professor {
+  border: 1px solid #ddd;
+  background-color: #EDEDED;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.professor h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.professor .info {
+  float: left
+}
+
+.professor .info p img {
+  border: 5px solid #831A52;
+  border-radius: 4px;
+  margin: 12px 15px 5px 0px;
+}
+
+.professor .info ul {
+  margin: 0;
+  padding: 0;
+}
+
+.professor .info ul li {
+  display: inline-block;
+  text-align: left;
+  margin-left: 13px;
+}
+
+.professor .info ul li a {
+  display: block;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  text-indent: -555px;
+  border-radius: 34px;
+}
+
+li.linkedin_item a {
+  background: #000 url('/assets/linkedin_icon.png') no-repeat center;
+}
+
+li.dropbox_item a {
+  background: #000 url('/assets/dropbox_icon.png') no-repeat center;
+}
+
+li.lattes_item a {
+  background: #000 url('/assets/lattes_icon.png') no-repeat center;
+}
+
+ul.social li a:hover {
+  background-color: #831A52;
+}
+
+.clear {
+  clear: both;
+}
+
 li.inverse a {
-  color: #1a1a1a !important;
+  color: #831A52 !important;
 }
 
 .dropdown-menu li.inverse > a:hover, .dropdown-menu li.inverse > a:focus, .dropdown-submenu:hover > a {
@@ -36,6 +99,16 @@ li.inverse a {
   -moz-border-radius: 4px;
 border-radius: 4px;
 }
+
+.nav-pills > li > a {
+  color: #831A52 !important;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border-radius: 5px;
+}
+
 
 @import url(https://fonts.googleapis.com/css?family=Ubuntu);
 article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block;}
