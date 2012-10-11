@@ -4,6 +4,6 @@ FactoryGirl.define do
   factory :course do
     name "MyString"
     description "MyText"
-    professor
+    coordinator nil
   end
 end

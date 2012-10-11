@@ -5,6 +5,8 @@ require 'spec_helper'
 describe Professor do
   context 'relationship' do
     it { should have_one(:user) }
+    it { should have_one(:own_course).class_name('Course') }
+    it { should belong_to(:course) }
   end
 
   context 'validations' do

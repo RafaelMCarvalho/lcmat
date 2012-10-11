@@ -6,6 +6,7 @@ class CreateProfessors < ActiveRecord::Migration
       t.text :curriculum
       t.string :dropbox_link
       t.has_attached_file :photo
+      t.references :course
 
       t.timestamps
     end
