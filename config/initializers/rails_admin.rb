@@ -121,6 +121,8 @@ RailsAdmin.config do |config|
       field :dropbox_link do
         hint 'Conheça o <a href="http://dropbox.com">Dropbox</a> e compartilhe arquivos com seus alunos.'.html_safe
       end
+      field :linkedin_link
+      field :lattes_link
       field :user do
         active true
         help ''
@@ -136,6 +138,8 @@ RailsAdmin.config do |config|
       field :dropbox_link do
         hint 'Conheça o <a href="http://dropbox.com">Dropbox</a> e compartilhe arquivos com seus alunos.'.html_safe
       end
+      field :linkedin_link
+      field :lattes_link
       field :user do
         active do
           bindings[:object].errors.any?
