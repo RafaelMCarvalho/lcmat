@@ -8,6 +8,7 @@ Spork.prefork do
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
   require 'capybara/rspec'
+  require 'capybara/poltergeist'
   require 'valid_attribute'
   require 'cancan/matchers'
   require 'paperclip/matchers'
@@ -19,6 +20,8 @@ Spork.prefork do
   # in spec/support/ and its subdirectories.
   Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
+  Capybara.javascript_driver = :poltergeist
+
   RSpec.configure do |config|
     config.mock_with :rspec
     config.use_transactional_fixtures = false
@@ -27,7 +30,7 @@ Spork.prefork do
     config.before :each do
       if example.metadata[:js]
         Capybara.server_port = 33333
-        Capybara.current_driver = :webkit
+        Capybara.current_driver = :poltergeist
       end
       if Capybara.current_driver == :rack_test
         DatabaseCleaner.strategy = :transaction
