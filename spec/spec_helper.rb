@@ -11,6 +11,10 @@ Spork.prefork do
   require 'capybara/poltergeist'
   require 'valid_attribute'
   require 'cancan/matchers'
+  require 'paperclip/matchers'
+
+  IMAGE = File.expand_path("../data/image.jpg", __FILE__)
+  TEXT = File.expand_path("../data/text.txt", __FILE__)
 
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
@@ -20,10 +24,26 @@ Spork.prefork do
 
   RSpec.configure do |config|
     config.mock_with :rspec
+    config.use_transactional_fixtures = false
+    config.include Paperclip::Shoulda::Matchers
 
-    config.use_transactional_fixtures = true
+    config.before :each do
+      if example.metadata[:js]
+        Capybara.server_port = 33333
+        Capybara.current_driver = :poltergeist
+      end
+      if Capybara.current_driver == :rack_test
+        DatabaseCleaner.strategy = :transaction
+      else
+        DatabaseCleaner.strategy = :truncation
+      end
+      DatabaseCleaner.start
+    end
 
-    config.after { DatabaseCleaner.clean }
+    config.after do
+      DatabaseCleaner.clean
+      Capybara.use_default_driver if example.metadata[:js]
+    end
   end
 
   def login(email, password)
@@ -35,7 +55,7 @@ Spork.prefork do
 end
 
 Spork.each_run do
+  require File.expand_path("../../config/routes", __FILE__)
   load "#{Rails.root}/config/routes.rb"
   Dir["#{Rails.root}/app/**/*.rb"].each { |f| load f }
 end
-

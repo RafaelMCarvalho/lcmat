@@ -108,7 +108,7 @@ pt-BR:
       confirmation: "Sim, eu tenho certeza."
       delete_confirmation: "Confirmação de exclusão"
       bulk_delete: "Os seguintes objetos serão excluídos:"
-      new_model: "%{name} (Novo)"
+      new_model: "Novo %{name}"
     export:
       confirmation: "Exportar para %{name}"
       select: "Selecionar campos para exportar"
