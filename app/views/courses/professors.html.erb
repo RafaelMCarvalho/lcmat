@@ -1,0 +1,27 @@
+<%= render partial: 'course_menu' %>
+
+<% @course.professors.each do |professor| %>
+  <div class="professor">
+    <div class="info">
+      <p><%= image_tag 'some_image.jpg', width: '200', height: '200' %></p>
+      <ul class="social">
+        <li class="linkedin_item">
+          <%= link_to 'LinkedIn', '#', rel: 'tooltip', title: 'LinkedIn' %>
+        </li>
+        <li class="lattes_item">
+          <%= link_to 'Lattes', '#', rel: 'tooltip', title: 'Lattes' %>
+        </li>
+        <li class="dropbox_item">
+          <%= link_to 'Dropbox', '#', rel: 'tooltip', title: 'Dropbox' %>
+        </li>        
+      </ul>
+    </div>
+    <div class="description">
+      <h3><%= professor.name %></h3>
+      <p class="description"><%= professor.curriculum %></p>
+    </div>
+    <div class="clear"></div>
+  </div>
+<% end %>
+
+bla bla bla

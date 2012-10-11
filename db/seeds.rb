@@ -19,16 +19,26 @@ Page.create!(
 )
 
 Course.delete_all
-Course.create!(name: 'Licenciatura em Matemática',
+math = Course.create!(name: 'Licenciatura em Matemática',
   description: 'Licenciatura em Matemática')
-Course.create!(name: 'Ciência da Computação',
+computer = Course.create!(name: 'Ciência da Computação',
   description: 'Ciência da Computação')
-Course.create!(name: 'Engenharia de Materiais',
+materials = Course.create!(name: 'Engenharia de Materiais',
   description: 'Engenharia de Materiais')
-Course.create!(name: 'Engenharia Civil',
+civil = Course.create!(name: 'Engenharia Civil',
   description: 'Engenharia Civil')
-Course.create!(name: 'Engenharia de Produção',
+production = Course.create!(name: 'Engenharia de Produção',
   description: 'Engenharia de Produção')
+
+
+Professor.delete_all
+rivera = Professor.create!(name: 'Rivera', 
+  curriculum: 'Meu curriculo')
+annabell = Professor.create!(name: 'Annabell',
+  curriculum: 'Meu curriculo')
+rivera.update_attribute(:course, computer)
+annabell.update_attribute(:course, computer)
+computer.update_attribute(:coordinator, annabell)
 
 Informative.delete_all
 Informative.create!(
