@@ -2,6 +2,7 @@
 class SiteController < ApplicationController
 
   def index
+    @informative = Informative.last
   end
 
   # CONTACT BEGIN

@@ -1,2 +1,7 @@
-<h1>Add some code here!</h1>
+<% if @informative %>
+  <h2><%= @informative.title %></h2>
 
+  <%= @informative.content %>
+<% else %>
+  <h2>Bem-vindo ao site do LCMAT</h2>
+<% end %>
