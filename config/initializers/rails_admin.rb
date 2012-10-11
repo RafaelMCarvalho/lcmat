@@ -89,7 +89,7 @@ RailsAdmin.config do |config|
     end
   end
 
-  config.model Post do
+  config.model Informative do
     list do
       field :title
       field :published

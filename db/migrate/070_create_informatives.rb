@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
-class CreatePosts < ActiveRecord::Migration
+class CreateInformatives < ActiveRecord::Migration
   def self.up
-    create_table :posts do |t|
+    create_table :informatives do |t|
       t.string :title
       t.text :content
       t.boolean :published, :default => true
@@ -11,7 +11,7 @@ class CreatePosts < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :posts
+    drop_table :informatives
   end
 end
 
