@@ -35,6 +35,7 @@ Spork.prefork do
 end
 
 Spork.each_run do
-  require File.expand_path("../../config/routes", __FILE__)
+  load "#{Rails.root}/config/routes.rb"
+  Dir["#{Rails.root}/app/**/*.rb"].each { |f| load f }
 end
 

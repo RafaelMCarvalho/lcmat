@@ -3,10 +3,10 @@ class CreateCourses < ActiveRecord::Migration
     create_table :courses do |t|
       t.string :name
       t.text :description
-      t.references :professor
+      t.references :coordinator
 
       t.timestamps
     end
-    add_index :courses, :professor_id
+    add_index :courses, :coordinator_id
   end
 end
