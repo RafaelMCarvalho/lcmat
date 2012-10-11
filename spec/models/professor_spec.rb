@@ -22,6 +22,14 @@ describe Professor do
       it { should_not have_valid(:dropbox_link).when('foo') }
       it { should have_valid(:dropbox_link).when('foo.com') }
     end
+    context 'lattes_link' do
+      it { should_not have_valid(:lattes_link).when('foo') }
+      it { should have_valid(:lattes_link).when('foo.com') }
+    end
+    context 'linkedin_link' do
+      it { should_not have_valid(:linkedin_link).when('foo') }
+      it { should have_valid(:linkedin_link).when('foo.com') }
+    end
   end
 end
 

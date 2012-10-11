@@ -18,6 +18,8 @@ feature 'Manipulate professor' do
       attach_file 'Foto', "#{Rails.root}/spec/data/image.jpg"
       fill_in 'Currículo', :with => 'Currículo'
       fill_in 'Link do Dropbox', :with => 'foo.com'
+      fill_in 'Link do Linkedin', :with => 'foo.com'
+      fill_in 'Link do Lattes', :with => 'foo.com'
       fill_in 'E-mail', :with => 'professor@uenf.lcmat.br'
       fill_in 'Senha', :with => '123456'
       fill_in 'Confirme a senha', :with => '123456'
@@ -30,10 +32,15 @@ feature 'Manipulate professor' do
       attach_file 'Foto', "#{Rails.root}/spec/data/file.pdf"
       fill_in 'Currículo', with: ''
       fill_in 'Link do Dropbox', with: 'foo'
+      fill_in 'Link do Dropbox', :with => 'foo'
+      fill_in 'Link do Linkedin', :with => 'foo'
+      fill_in 'Link do Lattes', :with => 'foo'
       click_button 'Salvar'
       page.should have_content 'Nome não pode ser vazio.'
       page.should have_content 'Currículo não pode ser vazio.'
       page.should have_content 'Link do Dropbox não é válido.'
+      page.should have_content 'Link do Linkedin não é válido.'
+      page.should have_content 'Link do Lattes não é válido.'
       page.should have_content 'Foto com formato inválido'
     end
   end
