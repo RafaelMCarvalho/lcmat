@@ -1,4 +1,4 @@
-# -*- encoding : utf-8 -*-
+  # -*- encoding : utf-8 -*-
 
 Lcmat::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
@@ -13,7 +13,7 @@ Lcmat::Application.routes.draw do
   post "/contact" => "site#send_contact", as: :send_contact
 
 #= 3. courses routes ===========================================================
-  get '/cursos' => 'courses#index', as: :courses
+  get '/cursos/:id' => 'courses#show', as: 'course'
 
 #= 4. informatives routes ======================================================
   get '/informativos' => 'informatives#index', as: :informatives

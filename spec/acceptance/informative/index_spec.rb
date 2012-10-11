@@ -11,7 +11,7 @@ feature 'page index' do
       informative_2 = FactoryGirl.create :informative,
         title: 'Informativo 2', content: 'Descrição do informativo 2'
       visit root_path
-      within('.span7') do
+      within('.span9') do
         page.should have_content 'Informativo 2'
         page.should have_content 'Descrição do informativo 2'
 
@@ -24,7 +24,7 @@ feature 'page index' do
   context 'when there is no informative' do
     scenario 'show a welcome text' do
       visit root_path
-      within('.span7') do
+      within('.span9') do
         page.should have_content 'Bem-vindo ao site do LCMAT'
       end
     end
