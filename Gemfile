@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.2.8'
-gem 'builder', '3.0.0'
 gem 'mysql2', '0.3.11'
 gem 'devise', '2.1.2'
 gem 'fastercsv', '1.5.5'
@@ -13,6 +12,7 @@ gem 'jquery-rails', '2.1.2'
 gem 'sprockets', '2.1.3'
 gem 'ckeditor', '3.7.3'
 gem 'paperclip', '3.3.0'
+gem 'twitter-bootstrap-rails'
 gem 'bootstrap-wysihtml5-rails'
 
 group :assets do
