@@ -3,7 +3,7 @@ pt-BR:
     models:
       configuration: "Configuração"
       page: "Página"
-      post: "Informativo"
+      informative: "Informativo"
       professor: "Professor"
       user: "Usuário"
     attributes:
@@ -19,7 +19,7 @@ pt-BR:
         title: "Título"
         content: "Conteúdo"
         published: "Publicado"
-      post:
+      informative:
         title: "Título"
         content: "Conteúdo"
         published: "Publicado"

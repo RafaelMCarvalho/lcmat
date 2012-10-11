@@ -7,7 +7,7 @@
     <meta content="<%= configuration.keywords %>" name="keywords" />
     <meta content="<%= configuration.description %>" name="description" />
     <meta content='http://algorich.com.br' name='author' />
-    <title><%= content_for?(:title) ? yield(:title) : "Lcmat" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "LCMAT" %></title>
     <%= csrf_meta_tags %>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -39,7 +39,7 @@
   </head>
   <body>
 
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
         <div class="container">
           <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
@@ -47,12 +47,22 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">LCMAT</a>
-          <div class="container nav-collapse">
+          <%= link_to 'LCMAT', root_path, class: 'brand' %>
+          <div class="nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Cursos", courses_path  %></li>
+              <li class="dropdown">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                  Cursos
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <% Course.all.each do |course| %>
+                    <li class="inverse"><%= link_to course.name, course %></li>
+                  <% end %>
+                </ul>
+              </li>
               <li><%= link_to "Professores", "#"  %></li>
-              <li><%= link_to "Informativos", "#"  %></li>
+              <li><%= link_to "Informativos", informatives_path %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -60,19 +70,17 @@
     </div>
 
     <div class="container">
+      <%= yield(:subnav) %>
       <div class="content">
         <div class="row">
-            <div class="span3">
-              Menu com cursos aqui
-            </div>
-           <div class="span7">
-              <%= yield %>
-            </div>
-            <div class="span2">
-              <div class="well sidebar-nav">
-                <h3>Informativo</h3>
-              </div><!--/.well -->
-            </div><!--/span-->
+          <div class="span9">
+            <%= yield %>
+          </div>
+          <div class="span3">
+            <div class="well sidebar-nav">
+              <h3>Informativo</h3>
+            </div><!--/.well -->
+          </div><!--/span-->            
         </div><!--/row-->
       </div><!--/content-->
 

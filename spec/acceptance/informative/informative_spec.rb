@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 require 'spec_helper'
 
-feature 'Manipulate post' do
+feature 'Manipulate informatives' do
   background do
     @user = FactoryGirl.create :user, :email => 'user@user.com', :password => '123456'
     FactoryGirl.create :configuration
@@ -10,7 +10,7 @@ feature 'Manipulate post' do
 
   context 'new' do
     before :each do
-      visit '/admin/post/new'
+      visit '/admin/informative/new'
     end
 
     scenario 'successfully' do
@@ -30,8 +30,8 @@ feature 'Manipulate post' do
 
   context 'edit' do
     before :each do
-      post = FactoryGirl.create :post
-      visit "/admin/post/#{post.id}/edit"
+      informative = FactoryGirl.create :informative
+      visit "/admin/informative/#{informative.id}/edit"
     end
 
     scenario 'successfully' do
