@@ -2,6 +2,8 @@
 require 'spec_helper'
 
 feature 'course index' do
+  background { FactoryGirl.create :configuration }
+
   scenario 'shoud list the courses' do
     course_1 = FactoryGirl.create :course, name: 'Ciência da Computação'
     course_2 = FactoryGirl.create :course, name: 'Licenciatura em Matemática'

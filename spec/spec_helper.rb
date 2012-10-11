@@ -20,6 +20,11 @@ Spork.prefork do
   # in spec/support/ and its subdirectories.
   Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
+
+  Capybara.register_driver :poltergeist do |app|
+    Capybara::Poltergeist::Driver.new(app, { js_errors: false })
+  end
+
   Capybara.javascript_driver = :poltergeist
 
   RSpec.configure do |config|
