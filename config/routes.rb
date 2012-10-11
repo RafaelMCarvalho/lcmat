@@ -15,6 +15,9 @@ Lcmat::Application.routes.draw do
 #= 3. courses routes ===========================================================
   get '/cursos' => 'courses#index', as: :courses
 
+#= 4. informatives routes ======================================================
+  get '/informativos' => 'informatives#index', as: :informatives
+
   root :to => "site#index"
 end
 

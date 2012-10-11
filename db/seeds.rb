@@ -22,3 +22,8 @@ Course.delete_all
 Course.create!(
   name: 'Ciência da Computação',
   description: 'Ciência da Computação')
+
+Informative.delete_all
+Informative.create!(
+  title: 'Informativo 1',
+  content: 'Conteúdo do informativo')
