@@ -18,17 +18,17 @@ describe Professor do
       it { should_not have_valid(:curriculum).when('', nil) }
       it { should have_valid(:curriculum).when('Algum Currículo') }
     end
-    context 'dropbox_link' do
-      it { should_not have_valid(:dropbox_link).when('foo') }
-      it { should have_valid(:dropbox_link).when('foo.com') }
+    context 'dropbox' do
+      it { should_not have_valid(:dropbox).when('foo') }
+      it { should have_valid(:dropbox).when('foo.com') }
     end
-    context 'lattes_link' do
-      it { should_not have_valid(:lattes_link).when('foo') }
-      it { should have_valid(:lattes_link).when('foo.com') }
+    context 'lattes' do
+      it { should_not have_valid(:lattes).when('foo') }
+      it { should have_valid(:lattes).when('foo.com') }
     end
-    context 'linkedin_link' do
-      it { should_not have_valid(:linkedin_link).when('foo') }
-      it { should have_valid(:linkedin_link).when('foo.com') }
+    context 'linkedin' do
+      it { should_not have_valid(:linkedin).when('foo') }
+      it { should have_valid(:linkedin).when('foo.com') }
     end
   end
 end

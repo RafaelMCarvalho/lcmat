@@ -76,6 +76,14 @@ RailsAdmin.config do |config|
     end
  end
 
+  config.model Link do
+    visible false
+    edit do
+      field :title
+      field :url
+    end
+  end
+
   config.model Page do
     list do
       field :title
@@ -112,39 +120,53 @@ RailsAdmin.config do |config|
       end
     end
 
-    create do
-      field :name
-      field :photo
-      field :curriculum do
-        bootstrap_wysihtml5 true
-      end
-      field :dropbox_link do
-        hint 'Conheça o <a href="http://dropbox.com">Dropbox</a> e compartilhe arquivos com seus alunos.'.html_safe
-      end
-      field :linkedin_link
-      field :lattes_link
-      field :user do
-        active true
-        help ''
-      end
-    end
-
     edit do
-      field :name
-      field :photo
-      field :curriculum do
-        bootstrap_wysihtml5 true
-      end
-      field :dropbox_link do
-        hint 'Conheça o <a href="http://dropbox.com">Dropbox</a> e compartilhe arquivos com seus alunos.'.html_safe
-      end
-      field :linkedin_link
-      field :lattes_link
-      field :user do
+      group :basic_info do
+        label 'Informações básicas'
         active do
-          bindings[:object].errors.any?
+          bindings[:object].has_basic_info_errors?
         end
-        help 'Pressione o botão para alterar'
+
+        field :name
+        field :photo
+        field :curriculum do
+          bootstrap_wysihtml5 true
+        end
+      end
+      group :links do
+        label 'Links'
+        active do
+          bindings[:object].has_links_errors?
+        end
+
+        field :dropbox do
+          hint 'Conheça o <a href="http://dropbox.com">Dropbox</a> e compartilhe arquivos com seus alunos.'.html_safe
+        end
+        field :linkedin
+        field :lattes
+        field :links do
+          label 'Outros links'
+          active do
+            bindings[:object].errors.any?
+          end
+        end
+      end
+      group :access do
+        label 'E-mail e senha de acesso'
+        active do
+          user = bindings[:object].user
+          errors = bindings[:object].errors
+
+          if user.present?
+            (errors.any? and user.changed?) || (user and user.errors.any?)
+          end
+        end
+
+        field :user do
+          label '<i class="icon-user"></i>'.html_safe
+          active true
+          help 'Clique para alterar o e-mail ou senha'
+        end
       end
     end
   end

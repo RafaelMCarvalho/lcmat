@@ -12,6 +12,9 @@ pt-BR:
         keywords: "Palavras-chave"
         description: "Descrição"
         google_analytics: 'Google Analytics'
+      link:
+        title: 'Título'
+        url: 'URL'
       page:
         title: "Título"
         content: "Conteúdo"
@@ -22,9 +25,9 @@ pt-BR:
         published: "Publicado"
       professor:
         curriculum: 'Currículo'
-        dropbox_link: 'Link do Dropbox'
-        lattes_link: 'Link do Lattes'
-        linkedin_link: 'Link do Linkedin'
+        dropbox: 'Dropbox'
+        lattes: 'Lattes'
+        linkedin: 'LinkedIn'
         name: 'Nome'
         photo: 'Foto'
         user: 'Dados de acesso'
