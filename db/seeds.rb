@@ -53,11 +53,11 @@ production = Course.create!(name: 'Engenharia de Produção',
 
 
 Professor.delete_all
-rivera = Professor.create!(name: 'Rivera', curriculum: 'Meu curriculo')
+rivera = Professor.new(name: 'Rivera', curriculum: 'Meu curriculo')
 rivera.user = rivera_user
 rivera.save
 
-annabell = Professor.create!(name: 'Annabell', curriculum: 'Meu curriculo',
+annabell = Professor.new(name: 'Annabell', curriculum: 'Meu curriculo',
   photo: File.new("#{Rails.root}/db/seeds_data/annabell.jpg"))
 annabell.user = annabell_user
 annabell.save
