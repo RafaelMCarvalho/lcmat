@@ -2,6 +2,7 @@ pt-BR:
   activerecord:
     models:
       configuration: "Configuração"
+      course: 'Curso'
       page: "Página"
       informative: "Informativo"
       professor: "Professor"
