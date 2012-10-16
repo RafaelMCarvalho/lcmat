@@ -3,6 +3,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
   def self.up
     create_table(:users) do |t|
       t.references :professor
+      t.boolean :admin
 
       ## Database authenticatable
       t.string :email,              :null => false, :default => ""

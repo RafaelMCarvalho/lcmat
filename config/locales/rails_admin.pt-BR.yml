@@ -53,7 +53,7 @@ pt-BR:
         menu: "Detalhes"
         breadcrumb: "%{object_label}"
       show_in_app:
-        menu: "Mostrar na aplicação"
+        menu: "Mostrar no site"
       new:
         title: "Novo %{model_label}"
         menu: "Adicionar"

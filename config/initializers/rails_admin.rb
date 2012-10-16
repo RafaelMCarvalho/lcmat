@@ -1,4 +1,5 @@
 # -*- encoding : utf-8 -*-
+require Rails.root.join('lib/rails_admin/extensions/cancan/authorization_adapter')
 
 RailsAdmin.config do |config|
 

@@ -26,7 +26,7 @@ class Professor < ActiveRecord::Base
 
   validates_attachment_content_type :photo, content_type: /^image\/(jpg|jpeg|pjpeg|png|x-png|gif)$/, message: 'com formato inválido'
   validates_format_of :dropbox, :linkedin, :lattes, allow_blank: true, with: /^(?:(?:https?|ftp|git):\/\/)?(?:\S+(?::\S*)?@)?(?:(?!10(?:\.\d{1,3}){3})(?!127(?:\.\d{1,3}){3})(?!169\.254(?:\.\d{1,3}){2})(?!192\.168(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/[^\s]*)?$/i
-  validates_presence_of :name, :curriculum
+  validates_presence_of :name, :curriculum, :user
 
   def has_basic_info_errors?
     e = errors
@@ -35,7 +35,7 @@ class Professor < ActiveRecord::Base
 
   def has_links_errors?
     e = errors
-    e[:linkedin].any? || e[:dropbox].any? || e[:lattes].any? || self.links.map(&:errors).any?
+    e[:linkedin].any? || e[:dropbox].any? || e[:lattes].any? || self.links.map(&:errors).map(&:any?).include?(true)
   end
 
   private

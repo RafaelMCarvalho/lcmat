@@ -14,6 +14,10 @@ describe Professor do
       it { should_not have_valid(:name).when('', nil) }
       it { should have_valid(:name).when('Algum Nome') }
     end
+    context 'user' do
+      it { should_not have_valid(:user).when(nil) }
+      it { should have_valid(:user).when(User.new) }
+    end
     context 'curriculum' do
       it { should_not have_valid(:curriculum).when('', nil) }
       it { should have_valid(:curriculum).when('Algum Currículo') }

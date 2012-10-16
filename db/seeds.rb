@@ -1,23 +1,43 @@
 # -*- encoding : utf-8 -*-
 User.delete_all
 User.create!(
-  :email => 'admin@base.com',
-  :password => '123456',
-  :password_confirmation => '123456'
+  email: 'admin@base.com',
+  password: '123456',
+  password_confirmation: '123456'
 )
+user = User.last
+user.admin = true
+user.save
+
+rivera_user = User.create!(
+  email: 'rivera@uenf.com',
+  password: '123456',
+  password_confirmation: '123456'
+)
+
+annabell_user = User.create!(
+  email: 'annabell@uenf.com',
+  password: '123456',
+  password_confirmation: '123456'
+)
+
 
 Configuration.delete_all
 Configuration.create!(
-  :email => 'base@project.com.br'
+  email: 'base@project.com.br'
 )
+
 
 Page.delete_all
 Page.create!(
-  :indicator => Page::PAGES[:contact],
-  :title => 'Contato',
-  :content => 'Conteúdo da página de contato',
-  :published => true
+  title: 'Contato',
+  content: 'Conteúdo da página de contato',
+  published: true
 )
+page = Page.last
+page.indicator = Page::PAGES[:contact]
+page.save
+
 
 Course.delete_all
 math = Course.create!(name: 'Licenciatura em Matemática',
@@ -33,10 +53,15 @@ production = Course.create!(name: 'Engenharia de Produção',
 
 
 Professor.delete_all
-rivera = Professor.create!(name: 'Rivera', 
-  curriculum: 'Meu curriculo')
-annabell = Professor.create!(name: 'Annabell',
-  curriculum: 'Meu curriculo')
+rivera = Professor.create!(name: 'Rivera', curriculum: 'Meu curriculo')
+rivera.user = rivera_user
+rivera.save
+
+annabell = Professor.create!(name: 'Annabell', curriculum: 'Meu curriculo',
+  photo: File.new("#{Rails.root}/db/seeds_data/annabell.jpg"))
+annabell.user = annabell_user
+annabell.save
+
 rivera.update_attribute(:course, computer)
 annabell.update_attribute(:course, computer)
 computer.update_attribute(:coordinator, annabell)
