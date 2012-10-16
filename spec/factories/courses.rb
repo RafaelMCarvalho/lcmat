@@ -4,6 +4,6 @@ FactoryGirl.define do
   factory :course do
     name "MyString"
     description "MyText"
-    coordinator nil
+    coordinator
   end
 end

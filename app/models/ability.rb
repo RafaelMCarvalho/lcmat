@@ -24,13 +24,16 @@ class Ability
 
       # Professor rules
       cannot :create, Professor
-      cannot [:edit, :destroy], Professor do |professor|
+      cannot :edit, Professor do |professor|
         user.professor != professor
       end
 
       # Course rules
+      if user.professor.own_course.blank?
+        cannot :manage, Course
+      end
       cannot :create, Course
-      cannot [:edit, :destroy], Course do |course|
+      cannot :edit, Course do |course|
         user.professor.own_course != course
       end
 
@@ -38,6 +41,8 @@ class Ability
       can :edit, User do |user_obj|
         user_obj == user
       end
+
+      cannot :destroy, :all
     end
 
     # Useless actions

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rails_admin/i18n_support'
 
 module RailsAdmin
@@ -51,6 +52,20 @@ module RailsAdmin
             %{
               <li data-model="#{node.abstract_model.to_param}">
                 <a class="pjax" href="#{url_for(:action => :edit, :controller => 'rails_admin/main', :model_name => node.abstract_model.to_param, :id => 1)}">#{node.label_plural}</a>
+              </li>
+              #{navigation(nodes_stack, nodes_stack.select{|n| n.parent.to_s == node.abstract_model.model_name}, 1)}
+            }.html_safe
+          elsif node.abstract_model.to_param == 'professor' and not _current_user.admin
+            %{
+              <li data-model="#{node.abstract_model.to_param}">
+                <a class="pjax" href="#{url_for(:action => :edit, :controller => 'rails_admin/main', :model_name => node.abstract_model.to_param, :id => _current_user.professor.id)}">Minhas informações</a>
+              </li>
+              #{navigation(nodes_stack, nodes_stack.select{|n| n.parent.to_s == node.abstract_model.model_name}, 1)}
+            }.html_safe
+          elsif node.abstract_model.to_param == 'course' and not _current_user.admin and not _current_user.professor.own_course.blank?
+            %{
+              <li data-model="#{node.abstract_model.to_param}">
+                <a class="pjax" href="#{url_for(:action => :edit, :controller => 'rails_admin/main', :model_name => node.abstract_model.to_param, :id => _current_user.professor.own_course.id)}">Meu curso</a>
               </li>
               #{navigation(nodes_stack, nodes_stack.select{|n| n.parent.to_s == node.abstract_model.model_name}, 1)}
             }.html_safe

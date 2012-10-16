@@ -54,6 +54,18 @@ RailsAdmin.config do |config|
  end
  # CKeditor models (end)
 
+
+  config.model Course do
+    visible false
+    edit do
+      field :name
+      field :description
+      field :coordinator
+      field :professors
+    end
+  end
+
+
   config.model Configuration do
 
     edit do

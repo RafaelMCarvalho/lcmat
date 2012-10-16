@@ -6,7 +6,7 @@ pt-BR:
       truncate: "…"
   admin:
     home:
-      name: Início
+      name: Site
     misc:
       search: "Search"
       filter: "Filtro"

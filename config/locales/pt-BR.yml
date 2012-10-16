@@ -2,6 +2,7 @@ pt-BR:
   activerecord:
     models:
       configuration: "Configuração"
+      course: 'Curso'
       page: "Página"
       informative: "Informativo"
       professor: "Professor"
@@ -12,6 +13,11 @@ pt-BR:
         keywords: "Palavras-chave"
         description: "Descrição"
         google_analytics: 'Google Analytics'
+      course:
+        name: 'Nome'
+        coordinator: 'Coordenador'
+        description: 'Descrição'
+        professors: 'Professores'
       link:
         title: 'Título'
         url: 'URL'
