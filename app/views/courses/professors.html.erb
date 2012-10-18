@@ -3,17 +3,26 @@
 <% @course.professors.each do |professor| %>
   <div class="professor">
     <div class="info">
-      <p><%= image_tag 'some_image.jpg', width: '200', height: '200' %></p>
+      <p><%= image_tag professor.photo.url(:facebook_share), width: '200', height: '200' %></p>
       <ul class="social">
-        <li class="linkedin_item">
-          <%= link_to 'LinkedIn', '#', rel: 'tooltip', title: 'LinkedIn' %>
-        </li>
-        <li class="lattes_item">
-          <%= link_to 'Lattes', '#', rel: 'tooltip', title: 'Lattes' %>
-        </li>
-        <li class="dropbox_item">
-          <%= link_to 'Dropbox', '#', rel: 'tooltip', title: 'Dropbox' %>
-        </li>        
+        <% if professor.linkedin %>
+          <li class="linkedin_item">
+            <%= link_to 'LinkedIn', professor.linkedin, rel: 'tooltip', title: 'LinkedIn' %>
+          </li>
+        <% end %>
+
+        <% if professor.lattes %>
+          <li class="lattes_item">
+            <%= link_to 'Lattes', professor.lattes, rel: 'tooltip', title: 'Lattes' %>
+          </li>
+        <% end %>
+        
+        <% if professor.dropbox %>
+          <li class="dropbox_item">
+            <%= link_to 'Dropbox', professor.dropbox, rel: 'tooltip', title: 'Dropbox' %>
+          </li>
+        <% end %>
+
       </ul>
     </div>
     <div class="description">
@@ -23,5 +32,3 @@
     <div class="clear"></div>
   </div>
 <% end %>
-
-bla bla bla

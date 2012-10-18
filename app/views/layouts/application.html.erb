@@ -73,14 +73,20 @@
       <%= yield(:subnav) %>
       <div class="content">
         <div class="row">
-          <div class="span9">
-            <%= yield %>
-          </div>
-          <div class="span3">
-            <div class="well sidebar-nav">
-              <h3>Informativo</h3>
-            </div><!--/.well -->
-          </div><!--/span-->            
+          <% if yield(:sidebar).present? %>
+            <div class="span9">
+              <%= yield %>
+            </div>
+            <div class="span3">
+              <div class="well sidebar-nav">
+                <h3>Informativo</h3>
+              </div><!--/.well -->
+            </div><!--/span-->            
+          <% else %>
+            <div class="span12">
+              <%= yield %>
+            </div>
+          <% end %>
         </div><!--/row-->
       </div><!--/content-->
 
