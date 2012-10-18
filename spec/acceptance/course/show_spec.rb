@@ -29,6 +29,5 @@ feature 'course show' do
     within('.subnav') { click_link 'Professores' }
     page.should have_content 'Rivera'
     page.should have_content 'Annabell'
-    page.should have_no_content 'Coca'
   end
 end

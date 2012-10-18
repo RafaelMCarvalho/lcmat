@@ -4,5 +4,5 @@ class Course < ActiveRecord::Base
 
   attr_accessible :description, :name, :coordinator_id, :professor_ids
 
-  validates_presence_of :name, :coordinator
+  validates_presence_of :name
 end
