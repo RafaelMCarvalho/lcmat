@@ -65,6 +65,10 @@ production = Course.create!(name: 'Engenharia de Produção',
 
 rivera.update_attribute(:course, computer)
 
+CourseFile.delete_all
+course_file = CourseFile.create!(file: File.open("#{Rails.root}/spec/data/file.pdf"))
+course_file.update_attribute(:course, computer)
+
 Informative.delete_all
 Informative.create!(
   title: 'Informativo 1',

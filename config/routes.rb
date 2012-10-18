@@ -14,6 +14,7 @@ Lcmat::Application.routes.draw do
 
 #= 3. courses routes ===========================================================
   get '/cursos/:id/professores' => 'courses#professors', as: 'course_professors'
+  get '/cursos/:id/arquivos' => 'courses#files', as: 'course_files'
   get '/cursos/:id' => 'courses#show', as: 'course'
 
 #= 4. informatives routes ======================================================

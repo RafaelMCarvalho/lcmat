@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :course_file do
+    file File.new("#{Rails.root}/spec/data/file.pdf")
     course nil
   end
 end
