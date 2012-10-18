@@ -1,10 +1,15 @@
 <%= content_for :subnav do %>
-  <div class="row"></div>
   <div class="subnav">
     <ul class="nav nav-pills">
-      <li><%= link_to 'Página inicial', @course %></li>
-      <li><%= link_to 'Arquivos', '#' %></li>
-      <li><%= link_to 'Professores', course_professors_path(@course) %></li>
+      <li class="<%= (request.path == course_path(@course)) ? 'active' : '' %>">
+        <%= link_to 'Página inicial', @course %>
+      </li>
+      <li>
+        <%= link_to 'Arquivos', '#' %>
+      </li>
+      <li class="<%= (request.path == course_professors_path(@course)) ? 'active' : '' %>">
+        <%= link_to 'Professores', course_professors_path(@course) %>
+      </li>
     </ul>
   </div>
 <% end %>
