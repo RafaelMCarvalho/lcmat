@@ -1,6 +1,7 @@
 class Course < ActiveRecord::Base
   belongs_to :coordinator, class_name: 'Professor'
   has_many :professors
+  has_many :course_files
 
   attr_accessible :description, :name, :coordinator_id, :professor_ids, :coordinator
 

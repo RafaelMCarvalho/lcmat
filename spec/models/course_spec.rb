@@ -30,5 +30,6 @@ describe Course do
   describe 'relationships' do
     it { should belong_to(:coordinator).class_name(Professor) }
     it { should have_many(:professors) }
+    it { should have_many(:course_files) }
   end
 end
