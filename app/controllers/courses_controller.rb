@@ -6,6 +6,10 @@ class CoursesController < ApplicationController
 
   def professors; end
 
+  def files
+    @course_files = @course.course_files
+  end
+
   private
   def get_course
     @course = Course.find(params[:id])

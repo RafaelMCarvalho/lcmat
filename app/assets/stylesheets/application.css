@@ -49,6 +49,18 @@
   border-radius: 34px;
 }
 
+.subnav li.active {
+}
+
+.subnav li.active a {
+  background-color: #D0D0D0;
+}
+
+.subnav li.active a:hover {
+  background-color: transparent;
+}
+
+
 li.linkedin_item a {
   background: #000 url('/assets/linkedin_icon.png') no-repeat center;
 }

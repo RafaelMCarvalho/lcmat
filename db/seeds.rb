@@ -21,12 +21,10 @@ annabell_user = User.create!(
   password_confirmation: '123456'
 )
 
-
 Configuration.delete_all
 Configuration.create!(
   email: 'base@project.com.br'
 )
-
 
 Page.delete_all
 Page.create!(
@@ -38,33 +36,38 @@ page = Page.last
 page.indicator = Page::PAGES[:contact]
 page.save
 
-
-Course.delete_all
-math = Course.create!(name: 'Licenciatura em Matemática',
-  description: 'Licenciatura em Matemática')
-computer = Course.create!(name: 'Ciência da Computação',
-  description: 'Ciência da Computação')
-materials = Course.create!(name: 'Engenharia de Materiais',
-  description: 'Engenharia de Materiais')
-civil = Course.create!(name: 'Engenharia Civil',
-  description: 'Engenharia Civil')
-production = Course.create!(name: 'Engenharia de Produção',
-  description: 'Engenharia de Produção')
-
-
 Professor.delete_all
-rivera = Professor.new(name: 'Rivera', curriculum: 'Meu curriculo')
-rivera.user = rivera_user
-rivera.save
-
 annabell = Professor.new(name: 'Annabell', curriculum: 'Meu curriculo',
   photo: File.new("#{Rails.root}/db/seeds_data/annabell.jpg"))
 annabell.user = annabell_user
 annabell.save
 
+rivera = Professor.new(name: 'Rivera', curriculum: 'Meu curriculo')
+rivera.user = rivera_user
+rivera.save
+
+Course.delete_all
+math = Course.create!(name: 'Licenciatura em Matemática',
+  description: 'Licenciatura em Matemática',
+  coordinator: annabell)
+computer = Course.create!(name: 'Ciência da Computação',
+  description: 'Ciência da Computação',
+  coordinator: annabell)
+materials = Course.create!(name: 'Engenharia de Materiais',
+  description: 'Engenharia de Materiais',
+  coordinator: annabell)
+civil = Course.create!(name: 'Engenharia Civil',
+  description: 'Engenharia Civil',
+  coordinator: annabell)
+production = Course.create!(name: 'Engenharia de Produção',
+  description: 'Engenharia de Produção',
+  coordinator: annabell)
+
 rivera.update_attribute(:course, computer)
-annabell.update_attribute(:course, computer)
-computer.update_attribute(:coordinator, annabell)
+
+CourseFile.delete_all
+course_file = CourseFile.create!(file: File.open("#{Rails.root}/spec/data/file.pdf"))
+course_file.update_attribute(:course, computer)
 
 Informative.delete_all
 Informative.create!(

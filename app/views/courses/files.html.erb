@@ -1,0 +1,13 @@
+<%= render partial: 'course_menu' %>
+
+<h2>Arquivos</h2>
+
+<% if @course_files.present? %>
+  <ul>
+    <% @course_files.each do |course_file| %>
+      <li><%= link_to course_file.file.name, course_file.file.url %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Não há arquivos.</p>
+<% end %>
