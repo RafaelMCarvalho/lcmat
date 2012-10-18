@@ -1,7 +1,7 @@
 <% if @informative %>
   <h2><%= @informative.title %></h2>
 
-  <%= @informative.content %>
+  <%= @informative.content.html_safe %>
 <% else %>
   <h2>Bem-vindo ao site do LCMAT</h2>
 <% end %>

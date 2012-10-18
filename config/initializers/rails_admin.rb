@@ -105,7 +105,7 @@ RailsAdmin.config do |config|
 
     edit do
       field :title
-      field(:content) { ckeditor true }
+      field(:content)
       field :published
     end
   end
@@ -118,7 +118,7 @@ RailsAdmin.config do |config|
 
     edit do
       field :title
-      field(:content) { ckeditor true }
+      field(:content)
       field :published
     end
   end

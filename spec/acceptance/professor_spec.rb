@@ -18,6 +18,7 @@ feature 'Manipulate professor' do
       sleep 2
       fill_in 'Nome', :with => 'Novo Nome'
       attach_file 'Foto', "#{Rails.root}/spec/data/image.jpg"
+      # page.execute_script('$(function() { $(".wysihtml5-editor").text("Meu texto"); });')
       fill_in 'Currículo', :with => 'Currículo'
       fill_in 'Dropbox', :with => 'foo.com'
       fill_in 'LinkedIn', :with => 'foo.com'
