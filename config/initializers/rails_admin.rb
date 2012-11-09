@@ -54,14 +54,39 @@ RailsAdmin.config do |config|
  end
  # CKeditor models (end)
 
-
-  config.model Course do
+  config.model CourseFile do
     visible false
     edit do
+      field :file
+    end
+  end
+
+  config.model Course do
+    edit do
       field :name
-      field :description
+      field :description do
+        bootstrap_wysihtml5 true
+        bootstrap_wysihtml5_config_options do
+          { 'font-styles' => false,
+            'emphasis' => true,
+            'lists' => true,
+            'html' => true,
+            'link' => false,
+            'image' => false,
+            'color' => false,
+            'locale' => 'pt_BR'
+          }
+        end
+        html_attributes do
+          {
+            :cols => '120',
+            :rows => '20'
+          }
+        end
+      end
       field :coordinator
       field :professors
+      field :course_files
     end
   end
 
@@ -105,7 +130,26 @@ RailsAdmin.config do |config|
 
     edit do
       field :title
-      field(:content)
+      field(:content) do
+        bootstrap_wysihtml5 true
+        bootstrap_wysihtml5_config_options do
+          { 'font-styles' => false,
+            'emphasis' => true,
+            'lists' => true,
+            'html' => true,
+            'link' => false,
+            'image' => false,
+            'color' => false,
+            'locale' => 'pt_BR'
+          }
+        end
+        html_attributes do
+          {
+            :cols => '120',
+            :rows => '20'
+          }
+        end
+      end
       field :published
     end
   end
@@ -118,7 +162,9 @@ RailsAdmin.config do |config|
 
     edit do
       field :title
-      field(:content)
+      field(:content) do
+        ckeditor true
+      end
       field :published
     end
   end
@@ -143,8 +189,25 @@ RailsAdmin.config do |config|
         field :name
         field :photo
         field :curriculum do
-          bootstrap_wysihtml5 true
+        bootstrap_wysihtml5 true
+        bootstrap_wysihtml5_config_options do
+          { 'font-styles' => false,
+            'emphasis' => true,
+            'lists' => true,
+            'html' => true,
+            'link' => false,
+            'image' => false,
+            'color' => false,
+            'locale' => 'pt_BR'
+          }
         end
+        html_attributes do
+          {
+            :cols => '120',
+            :rows => '20'
+          }
+        end
+      end
       end
       group :links do
         label 'Links'

@@ -3,6 +3,7 @@ pt-BR:
     models:
       configuration: "Configuração"
       course: 'Curso'
+      course_file: 'Arquivo'
       page: "Página"
       informative: "Informativo"
       professor: "Professor"
@@ -18,6 +19,11 @@ pt-BR:
         coordinator: 'Coordenador'
         description: 'Descrição'
         professors: 'Professores'
+        course_files: 'Arquivos'
+      course_file:
+        course: 'Curso'
+        course_id: 'Curso'
+        file: 'Arquivo'
       link:
         title: 'Título'
         url: 'URL'

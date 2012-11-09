@@ -7,14 +7,18 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require_tree .
+
+
+//
+// Index search
+//
 
 $(function(){
   $('.dropdown-menu.with-search input').keyup(function(){
-    var text = $(this).val();
+    var text = $(this).val().toLowerCase();
 
     $(this).parents('.dropdown-menu.with-search:first').find('li:not(:first-child)').each(function(){
-      if($(this).text().indexOf(text) == -1)
+      if($(this).text().toLowerCase().indexOf(text) === -1)
         $(this).slideUp();
       else
        $(this).slideDown();

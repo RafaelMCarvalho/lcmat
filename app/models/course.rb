@@ -3,11 +3,18 @@ class Course < ActiveRecord::Base
   has_many :professors
   has_many :course_files
 
-  attr_accessible :description, :name, :coordinator_id, :professor_ids, :coordinator
+  accepts_nested_attributes_for :course_files, allow_destroy: true
+
+  attr_accessible :description, :name, :coordinator_id, :professor_ids,
+    :coordinator, :course_files_attributes
 
   validates_presence_of :name, :coordinator
 
   def professors
-    [coordinator] + super
+    if coordinator
+      [coordinator] + super
+    else
+      super
+    end
   end
 end
