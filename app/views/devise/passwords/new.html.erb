@@ -1,17 +1,24 @@
 <%= content_for :content do %>
-  <h2>Recuperar senha</h2>
+  <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :class => 'form-signin' }) do |f| %>
 
-  <%= simple_form_for(resource, :as => resource_name,
-    :url => session_path(resource_name), :html => { :method => :post }) do |f| %>
-    <div class="inputs">
-      <%= f.input :email, :required => true, :autofocus => true %>
-    </div>
+    <% if flash[:alert].present? %>
+      <p class="flash_alert"><%= flash[:alert] %>
+    <% end %>
+
+    <h2 class="form-signin-heading">Recuperar senha</h2>
+    <%= f.input :email,
+      :required => false,
+      :label => false,
+      :autofocus => true,
+      :placeholder=> 'E-mail',
+      :input_html => { :class => 'input-block-level' } %>
+
+    <hr>
 
     <div class="actions">
-      <div class="links">
-        <%= render :partial => "devise/shared/links" %>
-      </div>
-      <p class="buttom"><%= f.button :submit, 'Enviar instruções' %></p>
+      <%= f.button :submit, 'Enviar instruções', :class => 'btn btn-large btn-primary' %>
+      <%= render :partial => "devise/shared/links" %>
     </div>
   <% end %>
+
 <% end %>

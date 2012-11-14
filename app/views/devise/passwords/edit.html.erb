@@ -1,19 +1,37 @@
-<h2>Alterar senha</h2>
+<%= content_for :content do %>
+  <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put, :class => 'form-signin' }) do |f| %>
 
-<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= f.error_notification %>
+    <% if flash[:alert].present? %>
+      <p class="flash_alert"><%= flash[:alert] %>
+    <% end %>
 
-  <%= f.input :reset_password_token, :as => :hidden %>
-  <%= f.full_error :reset_password_token %>
+    <% if flash[:notice].present? %>
+      <p class="flash_alert"><%= flash[:notice] %>
+    <% end %>
 
-  <div class="inputs">
-    <%= f.input :password, :label => "Nova senha", :required => true %>
-    <%= f.input :password_confirmation, :label => "Confirme sua nova senha, :required => true" %>
-  </div>
+    <h2 class="form-signin-heading">Alterar senha</h2>
+    <%= f.input :reset_password_token, :as => :hidden %>
+    <%= f.full_error :reset_password_token %>
 
-  <div class="actions">
-    <%= f.button :submit, "Alterar" %>
-  </div>
+    <%= f.input :password,
+      :required => false,
+      :label => false,
+      :placeholder=> 'Senha',
+      :input_html => { :class => 'input-block-level' } %>
+
+    <%= f.input :password_confirmation,
+      :required => false,
+      :label => false,
+      :placeholder => "Confirme sua nova senha",
+      :required => false,
+      :input_html => { :class => 'input-block-level' } %>
+
+    <hr>
+
+    <div class="actions">
+      <%= f.button :submit, 'Alterar', :class => 'btn btn-large btn-primary' %>
+      <%= render :partial => "devise/shared/links" %>
+    </div>
+  <% end %>
+
 <% end %>
-
-<%= render :partial => "devise/shared/links" %>

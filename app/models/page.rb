@@ -6,7 +6,8 @@ class Page < ActiveRecord::Base
   validates_presence_of :title
 
   PAGES = {
-    :contact => 1
+    :home => 1,
+    :contact => 2
   }
 end
 

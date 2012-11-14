@@ -1,7 +1,25 @@
-<% if @informative %>
-  <h2><%= @informative.title %></h2>
+<%= content_for :content do %>
 
-  <%= @informative.content.html_safe %>
-<% else %>
-  <h2>Bem-vindo ao site do LCMAT</h2>
+  <div class="header">
+    <div class="jumbotron">
+      <img src="/assets/logo.png"></img>
+      <h1>LCMAT</h1>
+      <p class="lead">Laboratório de Ciências Matemáticas da UENF</p>
+    </div>
+    <hr>
+  </div>
+
+
+  <% if @home.present? %>
+    <div class="home_content">
+      <%= @home.content.html_safe %>
+    </div>
+  <% end %>
+
+  <% if @informative %>
+    <h2><%= @informative.title %></h2>
+
+    <%= @informative.content.html_safe %>
+  <% else %>
+  <% end %>
 <% end %>

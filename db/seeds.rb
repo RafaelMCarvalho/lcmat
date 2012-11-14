@@ -60,6 +60,15 @@ page = Page.last
 page.indicator = Page::PAGES[:contact]
 page.save
 
+Page.create!(
+  title: 'Home',
+  content: lorem_description,
+  published: true
+)
+page = Page.last
+page.indicator = Page::PAGES[:home]
+page.save
+
 Professor.delete_all
 annabell = Professor.new(name: 'Annabell', curriculum: 'Meu curriculo',
   photo: File.new("#{Rails.root}/db/seeds_data/annabell.jpg"))

@@ -2,7 +2,8 @@
 class SiteController < ApplicationController
 
   def index
-    @informative = Informative.last
+    @informatives
+    @home = Page.where('indicator = ?', Page::PAGES[:home]).first
   end
 
   # CONTACT BEGIN

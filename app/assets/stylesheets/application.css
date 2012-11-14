@@ -6,6 +6,20 @@
  *= require_tree .
 */
 
+/* Header */
+
+.header img {
+  margin-right: 30px;
+  margin-bottom: 30px;
+  float: left;
+}
+
+.header .jumbotron {
+  width: 50%;
+  margin: 0px auto;
+}
+
+
 /* Professor */
 
 div.professor_profile {
