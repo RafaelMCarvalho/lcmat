@@ -37,7 +37,12 @@
                 </form>
               </li>
               <% Professor.all.each do |professor| %>
-                <li class="inverse"><%= image_tag professor.photo.url(:thumb), class: "img-polaroid" %><%= link_to professor.name, '#' %></li>
+                <li class="inverse">
+                  <a href="<%= professor_path(professor) %>">
+                    <%= image_tag professor.photo.url(:thumb), class: "img-polaroid" %>
+                    <%= professor.name %>
+                  </a>
+                </li>
               <% end %>
             </ul>
           </li>

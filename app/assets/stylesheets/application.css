@@ -50,46 +50,14 @@ div.professor_profile {
 
 /* Navigation */
 
-.subnav li.active {
-}
-
-.subnav li.active a {
-  background-color: #D0D0D0;
-}
-
-.subnav li.active a:hover {
-  background-color: transparent;
-}
-
-
-li.linkedin_item a {
-  background: #000 url('/assets/linkedin_icon.png') no-repeat center;
-}
-
-li.dropbox_item a {
-  background: #000 url('/assets/dropbox_icon.png') no-repeat center;
-}
-
-li.lattes_item a {
-  background: #000 url('/assets/lattes_icon.png') no-repeat center;
-}
-
-ul.social li a:hover {
-  background-color: #831A52;
-}
-
-.clear {
-  clear: both;
-}
-
-/* Navigation */
-
-ul.dropdown-menu.with-thumb li a {
-  display: inline;
+ul.dropdown-menu form {
+  text-align: center;
+  width: auto;
+  margin: 10px;
 }
 
 ul.dropdown-menu.with-thumb li img {
-  display: inline;
+  margin-right: 5px;
 }
 
 /* Algorich */
