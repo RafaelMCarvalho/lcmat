@@ -112,14 +112,6 @@ RailsAdmin.config do |config|
         field :google_analytics
       end
     end
- end
-
-  config.model Link do
-    visible false
-    edit do
-      field :title
-      field :url
-    end
   end
 
   config.model Page do
@@ -224,12 +216,6 @@ RailsAdmin.config do |config|
         end
         field :linkedin
         field :lattes
-        field :links do
-          label 'Outros links'
-          active do
-            bindings[:object].errors.any?
-          end
-        end
       end
       group :access do
         label 'E-mail e senha de acesso'

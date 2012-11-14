@@ -19,9 +19,9 @@ $(function(){
 
     $(this).parents('.dropdown-menu.with-search:first').find('li:not(:first-child)').each(function(){
       if($(this).text().toLowerCase().indexOf(text) === -1)
-        $(this).slideUp();
+        $(this).hide();
       else
-       $(this).slideDown();
+       $(this).show();
     });
   });
 })

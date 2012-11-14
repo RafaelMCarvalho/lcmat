@@ -1,21 +1,25 @@
 <%= content_for :content do %>
-  <h3><%= @contact.title %></h3>
 
-  <%= @contact.content.html_safe %>
+  <h1><%= @contact.title %></h1>
 
-  <div id="main_content" class="contact_page">
-    <%= content_tag(:p, notice, :class => 'notice') if notice %>
+  <%= content_tag(:div, notice, class: 'alert alert-success') if notice %>
 
-    <%= simple_form_for(@contact_form, :url => send_contact_path) do |f| %>
-      <div class="inputs">
-        <%= f.input :name %>
-        <%= f.input :email %>
-        <%= f.input :message, :as => :text %>
-      <div>
+  <div class="contact_content">
+    <%= @contact.content.html_safe %>
+  </div>
 
-      <div class="actions">
-        <%= f.button :submit, 'Enviar mensagem' %>
-      </div>
+  <div class="main well">
+    <%= simple_form_for(@contact_form, url: send_contact_path, html: { class: 'form-horizontal' }) do |f| %>
+        <%= f.input :name, required: false, input_html: { class: 'input-xxlarge'} %>
+        <%= f.input :email, required: false, input_html: { class: 'input-xxlarge'} %>
+        <%= f.input :message, as: :text, required: false, input_html: { class: 'input-xxlarge', rows: '10'} %>
+
+        <div class="control-group">
+          <div class="controls">
+            <%= f.button :submit, 'Enviar mensagem', class: 'btn' %>
+          </div>
+        </div>
     <% end %>
   </div>
 <% end %>
+

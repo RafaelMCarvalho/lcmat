@@ -1,15 +1,13 @@
 # -*- encoding : utf-8 -*-
 class Professor < ActiveRecord::Base
-  has_many :links, dependent: :destroy
   has_one :user, dependent: :destroy
   has_one :own_course, class_name: 'Course', foreign_key: 'coordinator_id'
   belongs_to :course
 
   accepts_nested_attributes_for :user, allow_destroy: true
-  accepts_nested_attributes_for :links, allow_destroy: true
 
   attr_accessible :user_attributes, :name, :curriculum, :dropbox,
-    :delete_photo, :photo, :linkedin, :lattes, :links_attributes, :links
+    :delete_photo, :photo, :linkedin, :lattes
 
   attr_accessor :delete_photo
 
@@ -35,7 +33,7 @@ class Professor < ActiveRecord::Base
 
   def has_links_errors?
     e = errors
-    e[:linkedin].any? || e[:dropbox].any? || e[:lattes].any? || self.links.map(&:errors).map(&:any?).include?(true)
+    e[:linkedin].any? || e[:dropbox].any? || e[:lattes].any?
   end
 
   private
