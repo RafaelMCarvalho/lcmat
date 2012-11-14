@@ -23,13 +23,13 @@ feature 'Send a contact message' do
     fill_in 'E-mail', :with => 'fulano@gmail'
     fill_in 'Mensagem', :with => ''
     click_button 'Enviar mensagem'
-    within('.field_with_errors[1]') do
+    within('.error[2]') do
       page.should have_content 'não pode ser vazio.'
     end
-    within('.field_with_errors[2]') do
+    within('.error[3]') do
       page.should have_content 'formato inválido.'
     end
-    within('.field_with_errors[3]') do
+    within('.error[4]') do
       page.should have_content 'não pode ser vazio.'
     end
   end
