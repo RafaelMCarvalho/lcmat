@@ -172,7 +172,9 @@ RailsAdmin.config do |config|
 
   config.model Professor do
     list do
-      field :photo
+      field :photo do
+        thumb_method :small
+      end
       field :name
       field :user do
         label 'E-mail'
@@ -187,7 +189,9 @@ RailsAdmin.config do |config|
         end
 
         field :name
-        field :photo
+        field :photo do
+          thumb_method :small
+        end
         field :curriculum do
         bootstrap_wysihtml5 true
         bootstrap_wysihtml5_config_options do

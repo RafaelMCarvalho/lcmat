@@ -6,48 +6,49 @@
  *= require_tree .
 */
 
-.professor {
-  border: 1px solid #ddd;
-  background-color: #EDEDED;
-  margin-bottom: 20px;
-  padding: 20px;
-  border-radius: 4px;
+/* Professor */
+
+div.professor_profile {
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
-.professor h3 {
-  margin: 0;
-  padding: 0;
+.professor_profile > img {
+  margin: 0 15px 15px auto;
+  float: left !important;
 }
 
-.professor .info {
-  float: left
+.professor_profile > div {
+  float: left;
 }
 
-.professor .info p img {
-  border: 5px solid #831A52;
-  border-radius: 4px;
-  margin: 12px 15px 5px 0px;
+.professor_profile h2 {
+  margin-top: 0;
+  line-height: 35px;
+  margin-left: 125px;
 }
 
-.professor .info ul {
-  margin: 0;
-  padding: 0;
+.professor_profile ul {
+  margin-left: 0;
+  margin-right: 40px;
+  float: left;
+  display: inline;
+  list-style: none;
+
+  font-size: 14px;
 }
 
-.professor .info ul li {
-  display: inline-block;
-  text-align: left;
-  margin-left: 13px;
+.professor_profile.coordinator ul {
+  font-size: 12px;
 }
 
-.professor .info ul li a {
-  display: block;
-  width: 50px;
-  height: 50px;
-  overflow: hidden;
-  text-indent: -555px;
-  border-radius: 34px;
+.professor_profile .dropbox_button {
+  float: left;
+  display: inline;
+  list-style: none;
 }
+
+/* Navigation */
 
 .subnav li.active {
 }
@@ -89,4 +90,43 @@ ul.dropdown-menu.with-thumb li a {
 
 ul.dropdown-menu.with-thumb li img {
   display: inline;
+}
+
+/* Algorich */
+
+.alg_logo {
+    display: block;
+    float: right;
+
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-decoration: none;
+    text-align: right;
+}
+
+/* breadbran */
+
+p.breadbran {
+  color: lightgray;
+  font-size: 18px;
+}
+
+/* Bootstrap override */
+
+i.icon-chevron-right {
+  margin-right: 5px;
+}
+
+.accordion-group {
+  background-color: #fff;
+}
+
+div:after, ol:after, form:after, ul:after, dl:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
 }

@@ -1,4 +1,79 @@
-<%= render partial: 'course_menu' %>
+<%= content_for :content do %>
+  <p class="breadbran">/cursos</p>
+  <div class="main well">
+    <h2><%= @course.name %></h2>
+    <div class="accordion" id="accordion1">
+      <div class="accordion-group">
+        <div class="accordion-heading">
 
-<h2><%= @course.name %></h2>
-<p><%= @course.description.html_safe %></p>
+          <h4><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne"><i class="icon-chevron-right"></i>Descrição</a></h4>
+        </div>
+        <div id="collapseOne" class="accordion-body collapse in">
+          <div class="accordion-inner">
+            <%= @course.description.html_safe %>
+            <hr>
+            <h4>Coordenador:</h4>
+            <div class="professor_profile coordinator">
+              <%= image_tag @coordinator.photo.url(:small), class: 'img-polaroid' %>
+              <h4>
+                <%= link_to @coordinator.name, professor_path(@coordinator) %>
+                <i class="icon-share-alt"></i>
+              </h4>
+              <ul>
+                <% if @coordinator.lattes.present?  %>
+                  <li>
+                    <img src="/assets/lattes_icon.png" width="15px" height="15px"></img>
+                    <%= link_to 'Plataforma Lattes', @coordinator.lattes %>
+                  </li>
+                <% end %>
+                <% if @coordinator.linkedin.present? %>
+                  <li>
+                    <img src="/assets/linkedin_icon.png" width="15px" height="15px"></img>
+                    <%= link_to 'LinkedIn', @coordinator.linkedin %>
+                  </li>
+                <% end %>
+                <% if @coordinator.dropbox.present? %>
+                  <li>
+                    <img src="/assets/dropbox_icon_mini.png" width="15px" height="15px"></img>
+                    <%= link_to 'Dropbox', @coordinator.dropbox %>
+                  </li>
+                <% end %>
+                <li>
+                  <i class="icon-envelope"></i>
+                  <%= link_to(@coordinator.user.email, "mailto:#{@coordinator.user.email}") %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% if @course_files.any? %>
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <h4><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo"><i class="icon-chevron-right"></i>Arquivos</a></h4>
+          </div>
+          <div id="collapseTwo" class="accordion-body collapse">
+            <div class="accordion-inner">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Nome</th>
+                    <th>Modificado em</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @course_files.each do |f| %>
+                    <tr>
+                      <td><%= link_to f.file_file_name, f.file.url %></td>
+                      <td><%= f.updated_at.strftime('%d/%m/%y - %H:%M') %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

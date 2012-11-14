@@ -53,15 +53,5 @@ feature 'Manipulate professor' do
       page.should have_content 'E-mail não é válido.'
     end
   end
-
-  scenario 'delete photo', js: true do
-    @professor = FactoryGirl.create :professor, photo: (File.new("#{Rails.root}/spec/data/image.jpg"))
-    visit "/admin/professor/#{@professor.id}/edit"
-    find(:xpath, '//fieldset[1]/legend').click
-    sleep 2
-    click_link 'Excluir foto'
-    click_button 'Salvar'
-    @professor.reload.photo.exists?.should be_false
-  end
 end
 

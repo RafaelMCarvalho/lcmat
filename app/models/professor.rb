@@ -17,7 +17,7 @@ class Professor < ActiveRecord::Base
     path: ":rails_root/public/system/professors/:id/:attachment/:style/:filename",
     url: "/system/professors/:id/:attachment/:style/:filename",
     styles: {
-      small: '150x150>', medium: '400x400>', thumb: '30x30#',
+      small: '100x100#', medium: '300x300#', thumb: '30x30#',
       facebook_share: '200x200#'
     }
 

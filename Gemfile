@@ -12,11 +12,12 @@ gem 'jquery-rails', '2.1.2'
 gem 'sprockets', '2.1.3'
 gem 'ckeditor', '3.7.3'
 gem 'paperclip', '3.3.0'
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', '2.1.4'
 gem 'bootstrap-wysihtml5-rails'
+gem 'less-rails'
+gem 'therubyracer'
 
 group :assets do
-  gem 'therubyracer', '0.10.2'
   gem 'uglifier', '1.3.0'
   gem 'yui-compressor', '0.9.6'
 end
@@ -28,7 +29,7 @@ group :test do
   gem 'factory_girl_rails', '1.6.0'
   gem 'valid_attribute', '1.3.1'
   gem 'spork', '0.9.2'
-  gem 'poltergeist'
+  gem 'capybara-webkit'
   gem 'database_cleaner', '0.8.0'
   gem 'shoulda-matchers'
 end

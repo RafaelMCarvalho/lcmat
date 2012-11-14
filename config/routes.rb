@@ -13,12 +13,14 @@ Lcmat::Application.routes.draw do
   post "/contact" => "site#send_contact", as: :send_contact
 
 #= 3. courses routes ===========================================================
-  get '/cursos/:id/professores' => 'courses#professors', as: 'course_professors'
-  get '/cursos/:id/arquivos' => 'courses#files', as: 'course_files'
   get '/cursos/:id' => 'courses#show', as: 'course'
 
 #= 4. informatives routes ======================================================
   get '/informativos' => 'informatives#index', as: :informatives
+
+#= 5. courses routes ===========================================================
+  get '/professores/:id' => 'professors#show', as: 'professor'
+
 
   root :to => "site#index"
 end

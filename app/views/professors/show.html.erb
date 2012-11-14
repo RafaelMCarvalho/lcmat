@@ -1,0 +1,51 @@
+<%= content_for :content do %>
+  <p class="breadbran">/professores</p>
+  <div class="main well">
+    <div class="professor_profile">
+      <%= image_tag @professor.photo.url(:small), class: 'img-polaroid' %>
+      <h2><%= @professor.name %></h2>
+      <div>
+        <ul>
+          <% if @professor.lattes.present?  %>
+            <li>
+              <!-- <i class="icon-share-alt"></i> -->
+              <img src="/assets/lattes_icon.png" width="15px" height="15px"></img>
+              <%= link_to 'Plataforma Lattes', @professor.lattes %>
+            </li>
+          <% end %>
+          <% if @professor.linkedin.present? %>
+            <li>
+              <!-- <i class="icon-share-alt"></i> -->
+              <img src="/assets/linkedin_icon.png" width="15px" height="15px"></img>
+              <%= link_to 'LinkedIn', @professor.linkedin %>
+            </li>
+          <% end %>
+          <li>
+            <i class="icon-envelope"></i>
+            <%= link_to(@professor.user.email, "mailto:#{@professor.user.email}") %>
+          </li>
+        </ul>
+        <% if @professor.dropbox.present? %>
+          <div class="dropbox_button">
+            <a href="<%= @professor.dropbox %>" class="btn"><img src="/assets/dropbox_icon.png"></img>Dropbox</a>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <br>
+    <div class="accordion" id="accordion1">
+      <div class="accordion-group">
+        <div class="accordion-heading">
+
+          <h4><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne"><i class="icon-chevron-right"></i>Descrição</a></h4>
+        </div>
+        <div id="collapseOne" class="accordion-body collapse in">
+          <div class="accordion-inner">
+            <%= @professor.curriculum.html_safe %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+<% end %>

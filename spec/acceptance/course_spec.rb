@@ -16,14 +16,15 @@ feature 'Manipulate course' do
     end
 
     scenario 'successfully', js: true do
-      fill_in 'Nome', :with => 'Novo Nome'
-      fill_in 'Descrição', :with => 'Desc'
-      select @coordinator.name, :from => 'Coordenador'
-      select @professor.name, :from => 'Professores'
+      fill_in 'Nome', with: 'Novo Nome'
+      fill_in 'Descrição', with: 'Desc'
+      select @coordinator.name, from: 'Coordenador'
+      select @professor.name, from: 'Professores'
       click_link 'Adicionar Arquivo'
       attach_file 'Arquivo', "#{Rails.root}/spec/data/image.jpg"
       click_button 'Salvar'
       page.should have_content 'Curso criado(a) com sucesso.'
+      Course.last.course_files.should have(1).item
     end
 
     scenario 'failure', js: true do
