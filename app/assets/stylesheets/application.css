@@ -145,14 +145,17 @@ ul.dropdown-menu {
     width: 25px;
     margin-left: -8px;
     margin-top: -15px;
-    display: none;
 }
 
-.informative li:hover .anchor {
+.informative .anchor img {
+  display: none;
+}
+
+.informative li:hover .anchor img {
     display: block;
 }
 
-.informative li:hover .anchor a {
+.informative li .anchor a {
     padding-top: 60px;
     margin-top: -60px;
 }

@@ -47,8 +47,8 @@ Spork.prefork do
 
   def login(email, password)
     visit '/admin'
-    fill_in('E-mail', :with => email)
-    fill_in('Senha', :with => password)
+    fill_in('user_email', :with => email)
+    fill_in('user_password', :with => password)
     click_button 'Entrar'
   end
 end
