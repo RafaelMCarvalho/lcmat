@@ -1,11 +1,10 @@
 # -*- encoding : utf-8 -*-
 
-lorem_description = '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praeclare hoc quidem. Dat enim intervalla et relaxat. Graece donan, Latine voluptatem vocant. <a href="http://loripsum.net/" target="_blank">Sed ad rem redeamus;</a> </p>
+lorem_description = '<p>   Praeclare hoc quidem. Dat enim intervalla et relaxat. Graece donan, Latine voluptatem vocant. <a href="http://loripsum.net/" target="_blank">Sed ad rem redeamus;</a> </p>
 
 <p>Sed fortuna fortis; Quid iudicant sensus? Memini vero, inquam; Obsecro, inquit, Torquate, haec dicit Epicurus? </p>
 
 <ul>
-  <li>-, sed ut hoc iudicaremus, non esse in iis partem maximam positam beate aut secus vivendi.</li>
   <li>Ne tum quidem te respicies et cogitabis sibi quemque natum esse et suis voluptatibus?</li>
   <li>Partim cursu et peragratione laetantur, congregatione aliae coetum quodam modo civitatis imitantur;</li>
   <li>Illa argumenta propria videamus, cur omnia sint paria peccata.</li>
@@ -103,6 +102,15 @@ course_file = CourseFile.create!(file: File.open("#{Rails.root}/spec/data/file.p
 course_file.update_attribute(:course, computer)
 
 Informative.delete_all
-Informative.create!(
-  title: 'Informativo 1',
-  content: 'Conteúdo do informativo')
+
+10.times do |i|
+  Informative.create!(
+    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ' + i.to_s,
+    content: '<p>Duo Reges: constructio interrete. Nos commodius agimus. Sed ea mala virtuti magnitudine obruebantur. Nos commodius agimus. Sed fortuna fortis; Nos cum te, M. </p>
+
+  <p>Respondeat totidem verbis. Quae est igitur causa istarum angustiarum? <a href="http://loripsum.net/" target="_blank">Sedulo, inquam, faciam.</a> Tollenda est atque extrahenda radicitus. </p>
+
+  <blockquote cite="http://loripsum.net">
+    Sunt etiam turpitudines plurimae, quae, nisi honestas natura plurimum valeat, cur non cadant in sapientem non est facile defendere.
+  </blockquote>')
+end

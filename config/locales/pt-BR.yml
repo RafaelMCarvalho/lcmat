@@ -35,6 +35,7 @@ pt-BR:
         title: "Título"
         content: "Conteúdo"
         published: "Publicado"
+        published_date: "Publicado em"
       professor:
         curriculum: 'Currículo'
         dropbox: 'Dropbox'

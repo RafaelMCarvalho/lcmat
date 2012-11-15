@@ -1,5 +1,30 @@
-<ul>
-<% @informatives.each do |informative| %>
-  <li><%= informative.title %></li>
+<%= content_for :content do %>
+  <p class="breadbran">/informativos</p>
+  <ul class="informative">
+    <% @informatives.each do |informative| %>
+      <li class="well">
+        <div class="anchor">
+          <a name="<%= informative.slug %>" class="anchor" href="#<%= informative.slug %>"><img src="/assets/anchor.png"></img></a>
+        </div>
+        <div class="informative_header">
+          <div class="date">
+            <p>
+              <span class="year"><%= informative.updated_at.year %></span>
+              <span class="month"><%= localize informative.updated_at, :format => '%b' %></span>
+              <span class="day"><%= informative.updated_at.day %></span>
+            </p>
+          </div>
+
+          <div class="title">
+            <h3><%= informative.title %></h3>
+            <p class="hour"><%= informative.updated_at.strftime('%H:%M') %></p>
+          </div>
+        </div>
+
+        <div class="informative_content">
+          <%= informative.content.html_safe  %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 <% end %>
-</ul>

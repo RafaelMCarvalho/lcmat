@@ -19,7 +19,6 @@ banco:
 	@echo "================================"
 	@echo "Recriando banco de dados do zero"
 	@echo "================================"
-	@sed -i s/^/\#/ config/initializers/rails_admin.rb
 	@rake db:drop:all
 	@rake db:create:all
 	@rake db:migrate
