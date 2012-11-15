@@ -1,26 +1,29 @@
 # -*- encoding : utf-8 -*-
+require 'factory_girl_rails'
 
-lorem_description = '<p>   Praeclare hoc quidem. Dat enim intervalla et relaxat. Graece donan, Latine voluptatem vocant. <a href="http://loripsum.net/" target="_blank">Sed ad rem redeamus;</a> </p>
-
-<p>Sed fortuna fortis; Quid iudicant sensus? Memini vero, inquam; Obsecro, inquit, Torquate, haec dicit Epicurus? </p>
-
-<ul>
-  <li>Ne tum quidem te respicies et cogitabis sibi quemque natum esse et suis voluptatibus?</li>
-  <li>Partim cursu et peragratione laetantur, congregatione aliae coetum quodam modo civitatis imitantur;</li>
-  <li>Illa argumenta propria videamus, cur omnia sint paria peccata.</li>
-</ul>
-
-
-<p>Duo Reges: constructio interrete. Nos commodius agimus. Sed ea mala virtuti magnitudine obruebantur. Nos commodius agimus. Sed fortuna fortis; Nos cum te, M. </p>
-
-<p>Respondeat totidem verbis. Quae est igitur causa istarum angustiarum? <a href="http://loripsum.net/" target="_blank">Sedulo, inquam, faciam.</a> Tollenda est atque extrahenda radicitus. </p>
+professor_description = '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Qui convenit? Restinguet citius, si ardentem acceperit. Si longus, levis; Dat enim intervalla et relaxat. </p>
 
 <blockquote cite="http://loripsum.net">
-  Sunt etiam turpitudines plurimae, quae, nisi honestas natura plurimum valeat, cur non cadant in sapientem non est facile defendere.
+  Quid, si non modo utilitatem tibi nullam afferet, sed iacturae rei familiaris erunt faciendae, labores suscipiendi, adeundum vitae periculum?
 </blockquote>
 
 
-<p>Quorum altera prosunt, nocent altera. <a href="http://loripsum.net/" target="_blank">Quod vestri non item.</a> Quae duo sunt, unum facit. Quae diligentissime contra Aristonem dicuntur a Chryippo. Facillimum id quidem est, inquam. Haec dicuntur inconstantissime. Restinguet citius, si ardentem acceperit. Tum Torquatus: Prorsus, inquit, assentior; </p>'
+<ul>
+  <li>Dolere malum est: in crucem qui agitur, beatus esse non potest.</li>
+  <li>Illis videtur, qui illud non dubitant bonum dicere -;</li>
+  <li>Cenasti in vita numquam bene, cum omnia in ista Consumis squilla atque acupensere cum decimano.</li>
+</ul>
+
+
+<p>Duo Reges: constructio interrete. Negare non possum. Tu quidem reddes; Qualem igitur hominem natura inchoavit? Aliter homines, aliter philosophos loqui putas oportere? <a href="http://loripsum.net/" target="_blank">Sed quid sentiat, non videtis.</a> </p>'
+course_description = professor_description
+home_content = professor_description
+contact_content = '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Qui convenit? Restinguet citius, si ardentem acceperit. Si longus, levis; Dat enim intervalla et relaxat. </p>
+
+<blockquote cite="http://loripsum.net">
+  Quid, si non modo utilitatem tibi nullam afferet, sed iacturae rei familiaris erunt faciendae, labores suscipiendi, adeundum vitae periculum?
+</blockquote>'
+informative_content = contact_content
 
 User.delete_all
 User.create!(
@@ -46,13 +49,18 @@ annabell_user = User.create!(
 
 Configuration.delete_all
 Configuration.create!(
-  email: 'base@project.com.br'
+  email: 'base@project.com.br',
+  footer: 'LCMAT - Laboratório de Ciências Matemáticas da UENF
+UENF - P5 - Sala 113
+Av. Alberto Lamego, 2000 - Pq. Califórnia
+Campos dos Goytacazes - RJ
+contato@lcmat.uenf.br | (22) 2739-3333'
 )
 
 Page.delete_all
 Page.create!(
   title: 'Contato',
-  content: 'Conteúdo da página de contato',
+  content: contact_content,
   published: true
 )
 page = Page.last
@@ -61,7 +69,7 @@ page.save
 
 Page.create!(
   title: 'Home',
-  content: lorem_description,
+  content: home_content,
   published: true
 )
 page = Page.last
@@ -69,48 +77,74 @@ page.indicator = Page::PAGES[:home]
 page.save
 
 Professor.delete_all
-annabell = Professor.new(name: 'Annabell', curriculum: 'Meu curriculo',
+annabell = Professor.new(name: 'Annabell Del Real Tamariz', curriculum: professor_description,
+  linkedin: 'http://google.com',
+  dropbox: 'http://google.com',
+  lattes: 'http://google.com',
   photo: File.new("#{Rails.root}/db/seeds_data/annabell.jpg"))
 annabell.user = annabell_user
 annabell.save
 
-rivera = Professor.new(name: 'Rivera', curriculum: 'Meu curriculo')
+rivera = Professor.new(name: 'Luis Antonio Rivera Escriba', curriculum: professor_description,
+  linkedin: 'http://google.com',
+  lattes: 'http://google.com')
 rivera.user = rivera_user
 rivera.save
 
+5.times do
+  FactoryGirl.create(:professor, name: 'Lorem ipsum dolor sit amet', curriculum: professor_description,
+    linkedin: 'http://google.com',
+    dropbox: 'http://google.com',
+    lattes: 'http://google.com')
+end
+
+5.times do
+  FactoryGirl.create(:professor, name: 'Lorem ipsum dolor sit amet', curriculum: professor_description,
+    linkedin: 'http://google.com',
+    lattes: 'http://google.com')
+end
+
+5.times do
+  FactoryGirl.create(:professor, name: 'Lorem ipsum dolor sit amet', curriculum: professor_description,
+    linkedin: 'http://google.com',
+    dropbox: 'http://google.com')
+end
+
 Course.delete_all
 math = Course.create!(name: 'Licenciatura em Matemática',
-  description: lorem_description,
-  coordinator: annabell)
+  description: course_description,
+  coordinator: Professor.all[5])
 computer = Course.create!(name: 'Ciência da Computação',
-  description: lorem_description,
+  description: course_description,
   coordinator: annabell)
 materials = Course.create!(name: 'Engenharia de Materiais',
-  description: lorem_description,
-  coordinator: annabell)
+  description: course_description,
+  coordinator: Professor.all[6])
 civil = Course.create!(name: 'Engenharia Civil',
-  description: lorem_description,
-  coordinator: annabell)
+  description: course_description,
+  coordinator: Professor.all[7])
 production = Course.create!(name: 'Engenharia de Produção',
-  description: lorem_description,
-  coordinator: annabell)
+  description: course_description,
+  coordinator: Professor.all[8])
 
 rivera.update_attribute(:course, computer)
 
 CourseFile.delete_all
-course_file = CourseFile.create!(file: File.open("#{Rails.root}/spec/data/file.pdf"))
-course_file.update_attribute(:course, computer)
+10.times do
+  course_file = CourseFile.create!(file: File.open("#{Rails.root}/spec/data/file.pdf"))
+  course_file.update_attribute(:course, computer)
+end
 
 Informative.delete_all
 
-10.times do |i|
+7.times do |i|
   Informative.create!(
     title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ' + i.to_s,
-    content: '<p>Duo Reges: constructio interrete. Nos commodius agimus. Sed ea mala virtuti magnitudine obruebantur. Nos commodius agimus. Sed fortuna fortis; Nos cum te, M. </p>
+    content: informative_content)
+end
 
-  <p>Respondeat totidem verbis. Quae est igitur causa istarum angustiarum? <a href="http://loripsum.net/" target="_blank">Sedulo, inquam, faciam.</a> Tollenda est atque extrahenda radicitus. </p>
-
-  <blockquote cite="http://loripsum.net">
-    Sunt etiam turpitudines plurimae, quae, nisi honestas natura plurimum valeat, cur non cadant in sapientem non est facile defendere.
-  </blockquote>')
+3.times do |i|
+  Informative.create!(
+    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ' + (i+7).to_s,
+    content: '')
 end

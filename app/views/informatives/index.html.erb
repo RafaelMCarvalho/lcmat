@@ -21,9 +21,11 @@
           </div>
         </div>
 
-        <div class="informative_content">
-          <%= informative.content.html_safe  %>
-        </div>
+        <% if informative.content.present? %>
+          <div class="informative_content">
+            <%= informative.content.html_safe  %>
+          </div>
+        <% end %>
       </li>
     <% end %>
   </ul>
