@@ -95,7 +95,7 @@ ul.dropdown-menu {
 
 .informative .informative_header .title {
     border-left: 1px solid #ccc;
-    margin-left: 55px;
+    margin-left: 75px;
     padding-left: 10px;
 }
 
@@ -108,7 +108,6 @@ ul.dropdown-menu {
     width: 50px;
     height: 100%;
     float: left;
-
 }
 
 .informative .informative_header .date span {
@@ -129,6 +128,7 @@ ul.dropdown-menu {
 }
 
 .informative .informative_header h3 {
+    margin-top: 0;
     margin-bottom: 0;
     color: #333;
     font-weight: 800;
@@ -140,24 +140,110 @@ ul.dropdown-menu {
   border-top: 1px solid #ccc;
 }
 
+.informative .well {
+    padding: 0;
+}
+
 .informative .anchor {
     float: left;
     width: 25px;
-    margin-left: -8px;
-    margin-top: -15px;
+    margin-left: 0;
+    margin-top: 0;
 }
 
-.informative .anchor img {
-  display: none;
+.informative .anchor {
+  visibility: hidden;
 }
 
-.informative li:hover .anchor img {
-    display: block;
+.informative li:hover .anchor {
+    visibility: visible;
 }
 
 .informative li .anchor a {
     padding-top: 60px;
     margin-top: -60px;
+}
+
+/* Home */
+
+.home_content {
+  margin-bottom: 40px;
+}
+
+.latest_informatives {
+  color: #808080;
+}
+
+.span6 .informative_header {
+    padding-top: 0;
+}
+
+.span6 .informative_header .title {
+    border-left: 1px solid #ccc;
+    margin-left: 55px;
+    padding-left: 10px;
+}
+
+.span6 .informative_header .hour {
+    font-size: 10px;
+    margin: 0;
+}
+
+.span6 .informative_header .date {
+    margin-top: 8px;
+    width: 50px;
+    height: 100%;
+    float: left;
+    line-height: 1;
+}
+
+.span6 .informative_header p {
+    margin: 0!important;
+}
+
+.span6 .informative_header .date span {
+    display: block;
+
+    font-size: 10px;
+    text-align: center;
+}
+
+.span6 .informative_header .date span.month {
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.span6 .informative_header .date span.day {
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.span6 .informative_header h5 {
+    margin-top: 10px;
+    color: #333;
+    font-weight: 800;
+}
+
+.span6 .informative_header h5 a {
+    color: #333;
+}
+
+.span6 .informative_header h5 a:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+.span6 .informative_header h5 a i {
+    display: none;
+}
+
+.span6 .informative_header h5 a:hover i {
+    display: inline-block;
+}
+
+a.more_informatives {
+    margin-top: 20px;
+    float: right;
 }
 
 /* Contact */
@@ -172,6 +258,18 @@ ul.dropdown-menu {
 p.breadbran {
   color: lightgray;
   font-size: 18px;
+}
+
+/* Footer */
+
+footer {
+  margin-top: 40px;
+}
+
+.footer_info {
+  font-size: 13px;
+  line-height: 15px;
+  float: left;
 }
 
 /* Algorich */

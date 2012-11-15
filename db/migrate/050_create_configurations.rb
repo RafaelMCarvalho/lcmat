@@ -6,6 +6,7 @@ class CreateConfigurations < ActiveRecord::Migration
       t.string :keywords
       t.text :description
       t.text :google_analytics
+      t.text :footer
 
       t.timestamps
     end

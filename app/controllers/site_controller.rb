@@ -2,7 +2,7 @@
 class SiteController < ApplicationController
 
   def index
-    @informatives
+    @informatives = Informative.where('published = ?', true).order('updated_at DESC').limit(6)
     @home = Page.where('indicator = ?', Page::PAGES[:home]).first
   end
 

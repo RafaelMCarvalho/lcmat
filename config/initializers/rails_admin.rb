@@ -1,4 +1,4 @@
-# -*- encoding : utf-8 -*-
+ #-*- encoding : utf-8 -*-
 require Rails.root.join('lib/rails_admin/extensions/cancan/authorization_adapter')
 
 RailsAdmin.config do |config|
@@ -110,6 +110,7 @@ RailsAdmin.config do |config|
         end
 
         field :google_analytics
+        field :footer
       end
     end
   end
