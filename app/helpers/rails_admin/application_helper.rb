@@ -51,7 +51,7 @@ module RailsAdmin
           if node.abstract_model.to_param == 'configuration'
             %{
               <li data-model="#{node.abstract_model.to_param}">
-                <a class="pjax" href="#{url_for(:action => :edit, :controller => 'rails_admin/main', :model_name => node.abstract_model.to_param, :id => 1)}">#{node.label_plural}</a>
+                <a class="pjax" href="#{url_for(:action => :edit, :controller => 'rails_admin/main', :model_name => node.abstract_model.to_param, :id => Configuration.all.last.id)}">#{node.label_plural}</a>
               </li>
               #{navigation(nodes_stack, nodes_stack.select{|n| n.parent.to_s == node.abstract_model.model_name}, 1)}
             }.html_safe

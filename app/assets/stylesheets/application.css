@@ -288,6 +288,10 @@ footer {
 
 /* Bootstrap override */
 
+div.main_container {
+  max-width: 900px;
+}
+
 i.icon-chevron-right {
   margin-right: 5px;
 }
