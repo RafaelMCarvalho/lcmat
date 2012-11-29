@@ -1,4 +1,11 @@
 pt-BR:
+  admin:
+    pagination:
+      first: "Primeira"
+      last: "Última"
+      previous: "&lsaquo; Anterior"
+      next: "Próxima &rsaquo;"
+      truncate: "..."
   activerecord:
     models:
       configuration: "Configuração"

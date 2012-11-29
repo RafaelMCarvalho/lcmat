@@ -16,6 +16,7 @@ gem 'twitter-bootstrap-rails', '2.1.4'
 gem 'bootstrap-wysihtml5-rails'
 gem 'less-rails'
 gem 'therubyracer'
+gem 'kaminari', '0.14.1'
 
 group :assets do
   gem 'uglifier', '1.3.0'

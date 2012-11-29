@@ -33,7 +33,7 @@
               </div>
 
               <div class="title">
-                <h5><a href="<%= informatives_path + "##{informative.slug}" %>"><%= informative.title %> <i class="icon-share-alt"></i></a></h5>
+                <h5><a href="<%= informative_path(informative) %>"><%= informative.title %> <i class="icon-share-alt"></i></a></h5>
                 <p class="hour"><%= informative.updated_at.strftime('%H:%M') %></p>
               </div>
             </div>
@@ -55,7 +55,7 @@
               </div>
 
               <div class="title">
-                <h5><a href="<%= informatives_path + "##{informative.slug}" %>"><%= informative.title %> <i class="icon-share-alt"></i></a></h5>
+                <h5><a href="<%= informative_path(informative) %>"><%= informative.title %> <i class="icon-share-alt"></i></a></h5>
                 <p class="hour"><%= informative.updated_at.strftime('%H:%M') %></p>
               </div>
             </div>

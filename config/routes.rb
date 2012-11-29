@@ -17,6 +17,7 @@ Lcmat::Application.routes.draw do
 
 #= 4. informatives routes ======================================================
   get '/informativos' => 'informatives#index', as: :informatives
+  get '/informativo/:id' => 'informatives#show', as: :informative
 
 #= 5. courses routes ===========================================================
   get '/professores/:id' => 'professors#show', as: 'professor'

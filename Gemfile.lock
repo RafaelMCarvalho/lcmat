@@ -258,6 +258,7 @@ DEPENDENCIES
   factory_girl_rails (= 1.6.0)
   fastercsv (= 1.5.5)
   jquery-rails (= 2.1.2)
+  kaminari (= 0.14.1)
   launchy (= 2.1.2)
   less-rails
   mysql2 (= 0.3.11)

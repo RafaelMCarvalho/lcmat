@@ -85,17 +85,26 @@ ul.dropdown-menu {
 
 /* Informative */
 
-.informative {
+ul.informative {
     list-style: none;
+    margin-left: 0;
+}
+
+.informative div.read_more {
+    text-align: right;
+    margin: 0 10px 10px 10px;
 }
 
 .informative .informative_header {
     padding-top: 0;
 }
+.informative .informative_header a {
+    color: #333;
+}
 
 .informative .informative_header .title {
     border-left: 1px solid #ccc;
-    margin-left: 75px;
+    margin-left: 50px;
     padding-left: 10px;
 }
 
@@ -142,26 +151,6 @@ ul.dropdown-menu {
 
 .informative .well {
     padding: 0;
-}
-
-.informative .anchor {
-    float: left;
-    width: 25px;
-    margin-left: 0;
-    margin-top: 0;
-}
-
-.informative .anchor {
-  visibility: hidden;
-}
-
-.informative li:hover .anchor {
-    visibility: visible;
-}
-
-.informative li .anchor a {
-    padding-top: 60px;
-    margin-top: -60px;
 }
 
 /* Home */

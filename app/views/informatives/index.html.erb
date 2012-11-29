@@ -3,9 +3,6 @@
   <ul class="informative">
     <% @informatives.each do |informative| %>
       <li class="well">
-        <div class="anchor">
-          <a name="<%= informative.slug %>" class="anchor" href="#<%= informative.slug %>"><img src="/assets/anchor.png"></img></a>
-        </div>
         <div class="informative_header">
           <div class="date">
             <p>
@@ -16,17 +13,24 @@
           </div>
 
           <div class="title">
-            <h3><%= informative.title %></h3>
+            <h3><%= link_to informative.title, informative_path(informative) %></h3>
             <p class="hour"><%= informative.updated_at.strftime('%H:%M') %></p>
           </div>
         </div>
 
         <% if informative.content.present? %>
           <div class="informative_content">
-            <%= informative.content.html_safe  %>
+            <% content = smart_truncate(informative.content.html_safe, 300) %>
+            <% more_content = smart_truncate(informative.content.html_safe, 301) %>
+            <p><%= content %></p>
           </div>
+          <% if more_content.length > content.length %>
+            <div class="read_more"><%= link_to 'Ler mais', informative %></div>
+          <% end %>
         <% end %>
       </li>
     <% end %>
   </ul>
+
+  <%= paginate @informatives, theme: 'twitter-bootstrap', window: 2 %>
 <% end %>
