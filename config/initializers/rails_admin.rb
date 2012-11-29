@@ -62,21 +62,15 @@ RailsAdmin.config do |config|
   end
 
   config.model Course do
+    list do
+      field :name
+      field :coordinator
+    end
+
     edit do
       field :name
       field :description do
         bootstrap_wysihtml5 true
-        bootstrap_wysihtml5_config_options do
-          { 'font-styles' => false,
-            'emphasis' => true,
-            'lists' => true,
-            'html' => true,
-            'link' => false,
-            'image' => false,
-            'color' => false,
-            'locale' => 'pt_BR'
-          }
-        end
         html_attributes do
           {
             :cols => '120',
@@ -104,13 +98,39 @@ RailsAdmin.config do |config|
 
         field :keywords do
            help 'Separadas por vírgula. Recomendável no máximo 10 palavras chave.'
+           html_attributes do
+            {
+              :cols => '70',
+              :rows => '7'
+            }
+          end
         end
         field :description do
           help 'Descrição utilizada pelos buscadores. Recomendável até 160 caracteres.'
+          html_attributes do
+            {
+              :cols => '70',
+              :rows => '7'
+            }
+          end
         end
 
-        field :google_analytics
-        field :footer
+        field :google_analytics do
+          html_attributes do
+            {
+              :cols => '70',
+              :rows => '7'
+            }
+          end
+        end
+        field :footer do
+          html_attributes do
+            {
+              :cols => '70',
+              :rows => '7'
+            }
+          end
+        end
       end
     end
   end
@@ -125,17 +145,6 @@ RailsAdmin.config do |config|
       field :title
       field(:content) do
         bootstrap_wysihtml5 true
-        bootstrap_wysihtml5_config_options do
-          { 'font-styles' => false,
-            'emphasis' => true,
-            'lists' => true,
-            'html' => true,
-            'link' => false,
-            'image' => false,
-            'color' => false,
-            'locale' => 'pt_BR'
-          }
-        end
         html_attributes do
           {
             :cols => '120',
@@ -187,17 +196,6 @@ RailsAdmin.config do |config|
         end
         field :curriculum do
         bootstrap_wysihtml5 true
-        bootstrap_wysihtml5_config_options do
-          { 'font-styles' => false,
-            'emphasis' => true,
-            'lists' => true,
-            'html' => true,
-            'link' => false,
-            'image' => false,
-            'color' => false,
-            'locale' => 'pt_BR'
-          }
-        end
         html_attributes do
           {
             :cols => '120',

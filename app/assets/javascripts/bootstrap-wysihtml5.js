@@ -9794,6 +9794,8 @@ wysihtml5.views.Textarea = wysihtml5.views.View.extend(
                 if(e.which == 13) {
                     insertLink();
                     insertLinkModal.modal('hide');
+                    e.preventDefault();
+                    return false;
                 }
             });
 
@@ -9811,7 +9813,7 @@ wysihtml5.views.Textarea = wysihtml5.views.View.extend(
                 var activeButton = $(this).hasClass("wysihtml5-command-active");
 
                 if (!activeButton) {
-                    insertLinkModal.append('body').modal('show');
+                    insertLinkModal.modal('show');
                     insertLinkModal.on('click.dismiss.modal', '[data-dismiss="modal"]', function(e) {
                         e.stopPropagation();
                     });
@@ -9864,13 +9866,13 @@ wysihtml5.views.Textarea = wysihtml5.views.View.extend(
     $.fn.wysihtml5.Constructor = Wysihtml5;
 
     var defaultOptions = $.fn.wysihtml5.defaultOptions = {
-        "font-styles": true,
-        "color": false,
+        "font-styles": false,
         "emphasis": true,
         "lists": true,
-        "html": false,
+        "html": true,
         "link": true,
-        "image": true,
+        "image": false,
+        "color": false,
         events: {},
         parserRules: {
             classes: {
@@ -9926,7 +9928,7 @@ wysihtml5.views.Textarea = wysihtml5.views.View.extend(
             }
         },
         stylesheets: ["/assets/bootstrap-wysihtml5/wysiwyg-color.css"], // (path_to_project/lib/css/wysiwyg-color.css)
-        locale: "en"
+        "locale": "pt_BR"
     };
 
     if (typeof $.fn.wysihtml5.defaultOptionsCache === 'undefined') {
