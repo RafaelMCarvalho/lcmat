@@ -19,7 +19,7 @@ class Ability
 
     # Professor user rules
     else
-      can :manage, [Professor, Course, Link]
+      can :manage, [Professor, Course]
       can :dashboard
 
       # Professor rules

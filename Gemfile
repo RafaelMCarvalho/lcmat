@@ -1,21 +1,21 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.11'
 gem 'mysql2', '0.3.11'
-gem 'devise', '2.1.2'
+gem 'devise', '2.2.3'
 gem 'fastercsv', '1.5.5'
-gem 'rails_admin', '0.2.0'
-gem 'cancan', '1.6.8'
-gem 'simple_form', '2.0.2'
-gem 'slim', '1.3.2'
-gem 'jquery-rails', '2.1.2'
-gem 'sprockets', '2.1.3'
-gem 'ckeditor', '3.7.3'
-gem 'paperclip', '3.3.0'
-gem 'twitter-bootstrap-rails', '2.1.4'
-gem 'bootstrap-wysihtml5-rails'
-gem 'less-rails'
-gem 'therubyracer'
+gem 'rails_admin', '0.4.3'
+gem 'cancan', '1.6.9'
+gem 'simple_form', '2.0.4'
+gem 'slim', '1.3.6'
+gem 'jquery-rails', '2.2.0'
+gem 'sprockets', '~> 2.2.1'
+gem 'ckeditor', '4.0.2'
+gem 'paperclip', '3.4.0'
+gem 'twitter-bootstrap-rails', '2.2.0'
+gem 'bootstrap-wysihtml5-rails', '0.3.1.17'
+gem 'less-rails', '2.2.6'
+gem 'therubyracer', '0.11.3'
 gem 'kaminari', '0.14.1'
 
 group :assets do
@@ -37,7 +37,7 @@ end
 
 group :developmet do
   gem 'rails3-generators'
-  gem 'slim-rails', '1.0.3'
-  gem 'thin'
+  gem 'slim-rails', '1.1.0'
+  gem 'thin', '1.5.0'
 end
 
